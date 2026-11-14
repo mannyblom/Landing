@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+.vercel
+
+# Skills de Claude Code: no viajan con el sitio. Se reinstalan con `npx skills experimental_install`
+.claude/skills/
+.claude/settings.local.json
+.agents/
+.taste-skill/
+
+# Capturas de revisión
+shots/
