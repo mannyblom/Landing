@@ -10,3 +10,4 @@ node_modules/
 
 # Capturas de revisión
 shots/
+.env*
