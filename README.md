@@ -31,6 +31,7 @@ assets/js/anchors.js       enlaces internos con desplazamiento suave
 assets/js/targets.js       posiciones de scroll de las piezas dentro de las secciones fijas
 assets/js/cursor.js        la etiqueta que sigue al puntero sobre los cuadros
 assets/js/clock.js         la hora de Córdoba en el pie
+assets/js/contact.js       el botón "Copiar mail" de Contacto
 assets/films/              loops, pósters y fotos de los films (de tus publicaciones de Instagram)
 assets/work/               imágenes de los proyectos de motion (de tus fichas de Behance)
 assets/fonts/              Archivo variable, alojada acá
@@ -41,6 +42,19 @@ vercel.json                caché y cabeceras para Vercel
 ## Cambiar el contenido
 
 Todo se edita en `index.html`. Los textos están a la vista; no hay que tocar JavaScript.
+
+### Datos de contacto
+
+Están en la sección Contacto, al final de `index.html` (`<ul class="contact">`), una fila por canal.
+Cada fila tiene el texto que se ve y su enlace:
+
+- **Mail:** `mailto:tu@mail.com?subject=…` y, en el botón de copiar, `data-copy="tu@mail.com"`.
+- **WhatsApp:** `https://wa.me/5493517739150?text=…` — el número va sin `+` ni espacios; lo que
+  sigue a `text=` es el mensaje que aparece escrito cuando alguien abre el chat.
+- **Instagram:** el enlace al perfil.
+
+Los botones "Escribime" del menú y del inicio llevan a esta sección. Si cambiás el mail o el
+teléfono, actualizalos también en el bloque `application/ld+json` del `<head>`.
 
 ### Sumar un film
 
@@ -87,6 +101,7 @@ Si cambia el texto del título hay que volver a medir esos números.
 | Motion, con el scroll | La sección queda fija y cada cuadro tapa al anterior desde abajo; cambian título, ficha y contador | Cuatro proyectos en el espacio de una pantalla |
 | Sobre mí, con el scroll | La frase se enciende palabra por palabra | Marca el ritmo de lectura |
 | Servicios, con el mouse | El nombre se ensancha y la píldora se abre | Cada servicio lleva a su pieza |
+| Contacto | "Copiar mail" copia la dirección y confirma con un tilde; los datos se ensanchan con el mouse | Escribir sin depender de Instagram |
 | Pie | El nombre corre, se arrastra y se estira con la velocidad | La firma; tiene botón de pausa |
 
 Reglas que cumple todo el movimiento:

@@ -2,6 +2,7 @@
    GSAP (gsap, ScrollTrigger, SplitText, Observer) se carga antes, desde assets/vendor/gsap-3.15.1. */
 import { initNav } from './nav.js';
 import { initClock } from './clock.js';
+import { initContact } from './contact.js';
 import { initAnchors } from './anchors.js';
 import { initHero } from './hero.js';
 import { initFilms } from './films.js';
@@ -20,6 +21,7 @@ const still = () => {
 
 initNav(gsap);
 initClock();
+initContact();
 initAnchors();
 
 if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
