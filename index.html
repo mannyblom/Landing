@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Manny Blom: filmmaker y motion designer en Córdoba, Argentina</title>
-<meta name="description" content="Portfolio de Manny Blom. Motion graphics, filmación y edición para marcas y eventos, desde Córdoba, Argentina.">
+<meta name="description" content="Portfolio de Manny Blom, filmmaker y motion designer de Córdoba, Argentina: fashion films, piezas de marca y motion graphics.">
 <meta name="theme-color" content="#dedad3">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:title" content="Manny Blom: filmmaker y motion designer">
-<meta property="og:description" content="Motion graphics, filmación y edición para marcas y eventos, desde Córdoba, Argentina.">
+<meta property="og:description" content="Fashion films, piezas de marca y motion graphics, desde Córdoba, Argentina.">
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <!-- Cuando el sitio tenga dominio: <link rel="canonical" href="https://TU-DOMINIO/"> y og:image con URL absoluta -->
@@ -20,7 +20,10 @@
 <link rel="modulepreload" href="assets/js/nav.js">
 <link rel="modulepreload" href="assets/js/clock.js">
 <link rel="modulepreload" href="assets/js/anchors.js">
+<link rel="modulepreload" href="assets/js/targets.js">
+<link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
+<link rel="modulepreload" href="assets/js/films.js">
 <link rel="modulepreload" href="assets/js/works.js">
 <link rel="modulepreload" href="assets/js/statement.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
@@ -53,7 +56,8 @@
       <span class="brand__name">Manny Blom</span>
     </a>
     <nav class="nav__links" aria-label="Secciones">
-      <a href="#trabajos" data-spy="trabajos">Trabajos</a>
+      <a href="#films" data-spy="films">Films</a>
+      <a href="#motion" data-spy="motion">Motion</a>
       <a href="#sobre-mi" data-spy="sobre-mi">Sobre mí</a>
       <a href="#servicios" data-spy="servicios">Servicios</a>
     </nav>
@@ -68,7 +72,8 @@
 <div class="sheet" id="menu" data-menu hidden>
   <div class="wrap sheet__in">
     <nav class="sheet__links" aria-label="Menú">
-      <a href="#trabajos">Trabajos</a>
+      <a href="#films">Films</a>
+      <a href="#motion">Motion</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#servicios">Servicios</a>
       <a href="#contacto">Contacto</a>
@@ -79,66 +84,252 @@
 
 <main id="contenido">
 
-  <!-- 1. HERO: el título es la imagen. Las píldoras muestran recortes de los proyectos reales. -->
+  <!-- 1. HERO: el título es la imagen. Las píldoras muestran recortes de los films. -->
   <section class="hero" id="inicio" aria-labelledby="hero-h" data-hero>
     <div class="wrap hero__wrap">
       <h1 class="hero__title" id="hero-h" aria-label="Filmmaker y motion designer en Córdoba">
-        <span class="hero__line" aria-hidden="true"><span class="hero__line-in"><span class="k">Filmmaker y</span><span class="pill" data-pill="0"><img src="assets/work/fieles-404.jpg" srcset="assets/work/fieles-404.jpg 404w, assets/work/fieles-808.jpg 808w" sizes="(min-width: 1024px) 280px, 120px" width="808" height="632" alt="" style="object-position: 62% 46%"><img src="assets/work/naranja-x-404.jpg" srcset="assets/work/naranja-x-404.jpg 404w, assets/work/naranja-x-808.jpg 808w" sizes="(min-width: 1024px) 280px, 120px" width="808" height="632" alt="" style="object-position: 18% 26%"></span></span></span>
+        <span class="hero__line" aria-hidden="true"><span class="hero__line-in"><span class="k">Filmmaker y</span><span class="pill" data-pill="0"><img src="assets/films/pill-dolores.webp" width="640" height="276" alt=""><img src="assets/films/pill-level-six.webp" width="640" height="276" alt=""></span></span></span>
         <span class="hero__line" aria-hidden="true"><span class="hero__line-in"><span class="k">motion designer</span></span></span>
-        <span class="hero__line" aria-hidden="true"><span class="hero__line-in"><span class="pill" data-pill="1"><img src="assets/work/livingtree-404.jpg" srcset="assets/work/livingtree-404.jpg 404w, assets/work/livingtree-808.jpg 808w" sizes="(min-width: 1024px) 280px, 120px" width="808" height="632" alt="" style="object-position: 50% 18%"><img src="assets/work/healthy-baby-404.jpg" srcset="assets/work/healthy-baby-404.jpg 404w, assets/work/healthy-baby-808.jpg 808w" sizes="(min-width: 1024px) 280px, 120px" width="808" height="632" alt="" style="object-position: 50% 64%"></span><span class="k">en Córdoba</span></span></span>
+        <span class="hero__line" aria-hidden="true"><span class="hero__line-in"><span class="pill" data-pill="1"><img src="assets/films/pill-hielo.webp" width="640" height="276" alt=""><img src="assets/films/pill-abstracta.webp" width="640" height="276" alt=""></span><span class="k">en Córdoba</span></span></span>
       </h1>
 
       <div class="hero__foot">
         <div class="hero__intro" data-rise>
-          <p class="lead">Soy Manny Blom. Filmo, edito y animo piezas para marcas y eventos: del sistema gráfico de un congreso al motion de un producto.</p>
+          <p class="lead">Soy Manny Blom. Filmo y edito campañas de moda y piezas de marca, y animo motion graphics para productos y eventos.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://www.instagram.com/mannyblom/" target="_blank" rel="noopener">Escribime por Instagram<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
-            <a class="btn btn--text" href="#trabajos">Ver trabajos</a>
+            <a class="btn btn--text" href="#films">Ver films</a>
           </div>
         </div>
         <dl class="facts" data-rise>
           <div class="facts__row"><dt>Base</dt><dd>Córdoba, Argentina</dd></div>
-          <div class="facts__row"><dt>Disciplinas</dt><dd>Motion graphics, filmación y edición</dd></div>
+          <div class="facts__row"><dt>Disciplinas</dt><dd>Fashion film, edición y motion graphics</dd></div>
           <div class="facts__row"><dt>Disponibilidad</dt><dd>Freelance y full-time</dd></div>
         </dl>
       </div>
     </div>
   </section>
 
-  <!-- 2. TRABAJOS: banda oscura. Con JS y pantalla grande, la sección queda fija y cada proyecto tapa al anterior al hacer scroll.
+  <!-- 2. FILMS: banda oscura con un carrete horizontal. En escritorio la sección queda fija y el scroll
+       (o arrastrar) mueve el carrete; en teléfono es una fila que se desliza con el dedo.
+       Para sumar una pieza: copiar un <li class="film"> completo y cambiar enlace, textos y archivos.
+       Con video: <img> (póster) + <video preload="none" src="…mp4">. Solo foto: dejar el <picture>. -->
+  <section class="films" id="films" aria-labelledby="films-h" data-films>
+    <div class="films__stage">
+      <div class="wrap films__head">
+        <div class="films__intro">
+          <h2 id="films-h">Films</h2>
+          <p class="lead">Campañas de moda, un rodaje en el glaciar y un registro personal. Cada pieza abre su publicación en Instagram, con los créditos del equipo.</p>
+        </div>
+        <div class="films__meta">
+          <button class="films__pause" type="button" data-films-pause aria-pressed="false" hidden>Pausar videos</button>
+          <p class="films__count" aria-hidden="true"><span class="films__current" data-films-current></span><span class="films__total" data-films-total></span></p>
+          <span class="films__bar" aria-hidden="true"><span class="films__bar-fill" data-films-bar></span></span>
+        </div>
+      </div>
+
+      <ol class="films__track" data-films-track>
+        <li class="film" id="film-erre-aw26">
+          <a class="film__link" href="https://www.instagram.com/p/DXIK0MlCf7O/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/erre-aw26-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Tres tomas de un modelo junto a un auto deportivo rojo en la ruta.">
+              <video muted loop playsinline preload="none" src="assets/films/erre-aw26.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">01</span>
+            <span class="film__title">Erre Jeans</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Fashion film · AW26</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-maycla-aw26">
+          <a class="film__link" href="https://www.instagram.com/p/DWzYbK3jRAm/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/maycla-aw26-poster.jpg" width="492" height="614" loading="lazy" decoding="async" draggable="false" alt="Una modelo de sobretodo y jean en un pasillo de madera.">
+              <video muted loop playsinline preload="none" src="assets/films/maycla-aw26.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">02</span>
+            <span class="film__title">Maycla</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Fashion film · AW26 · Córdoba</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film film--wide" id="film-banado-la-estrella">
+          <a class="film__link" href="https://www.instagram.com/reel/DRLLaEejSiX/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/banado-la-estrella-poster.jpg" width="1280" height="676" loading="lazy" decoding="async" draggable="false" alt="Atardecer dorado sobre el bañado, con árboles secos reflejados en el agua.">
+              <video muted loop playsinline preload="none" src="assets/films/banado-la-estrella.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">03</span>
+            <span class="film__title">Bañado La Estrella</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Registro personal · Formosa</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-level-six-aw25">
+          <a class="film__link" href="https://www.instagram.com/p/DRAwSy0DRnZ/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/level-six-aw25-poster.jpg" width="452" height="564" loading="lazy" decoding="async" draggable="false" alt="Una cartera de cuero colgada al hombro sobre un fondo rojo.">
+              <video muted loop playsinline preload="none" src="assets/films/level-six-aw25.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">04</span>
+            <span class="film__title">Level Six</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Fashion film · AW25</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-level-six-latido-sur">
+          <a class="film__link" href="https://www.instagram.com/p/DLTc9iQx9fd/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/level-six-latido-sur-poster.jpg" width="720" height="958" loading="lazy" decoding="async" draggable="false" alt="Retrato de una modelo con camisa a rayas y chaleco, al aire libre.">
+              <video muted loop playsinline preload="none" src="assets/films/level-six-latido-sur.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">05</span>
+            <span class="film__title">Level Six</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Latido sur · 2025</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-yazuka-yzk24">
+          <a class="film__link" href="https://www.instagram.com/p/DE3eR9nRvaZ/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/yazuka-yzk24-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Un grupo corre por una loma a contraluz, al atardecer.">
+              <video muted loop playsinline preload="none" src="assets/films/yazuka-yzk24.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">06</span>
+            <span class="film__title">Yazuka</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Film de campaña · YZK24</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-abstracta-ss25">
+          <a class="film__link" href="https://www.instagram.com/p/DEVuaRgxj3K/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/abstracta-ss25-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Una modelo frente a un lago al atardecer, con el título Amor de verano eterno.">
+              <video muted loop playsinline preload="none" src="assets/films/abstracta-ss25.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">07</span>
+            <span class="film__title">Abstracta</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Un amor de verano eterno · SS25</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-dolores-reynal-2024">
+          <a class="film__link" href="https://www.instagram.com/p/DBMRnXox9RN/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <picture>
+                <source type="image/avif" srcset="assets/films/dolores-reynal-2024-380.avif 380w, assets/films/dolores-reynal-2024-760.avif 760w" sizes="(min-width: 1024px) 400px, 76vw">
+                <source type="image/webp" srcset="assets/films/dolores-reynal-2024-380.webp 380w, assets/films/dolores-reynal-2024-760.webp 760w" sizes="(min-width: 1024px) 400px, 76vw">
+                <img src="assets/films/dolores-reynal-2024-760.jpg" width="760" height="950" loading="lazy" decoding="async" draggable="false" alt="Una modelo de vestido blanco sentada sobre piedras junto a un caballo, en las sierras.">
+              </picture>
+            </span>
+            <span class="film__num" aria-hidden="true">08</span>
+            <span class="film__title">Dolores Reynal</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Fashion film · La Cumbre, 2024</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-denim-studio">
+          <a class="film__link" href="https://www.instagram.com/p/C_eJJ3lRWxk/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <picture>
+                <source type="image/avif" srcset="assets/films/denim-studio-380.avif 380w, assets/films/denim-studio-760.avif 760w" sizes="(min-width: 1024px) 400px, 76vw">
+                <source type="image/webp" srcset="assets/films/denim-studio-380.webp 380w, assets/films/denim-studio-760.webp 760w" sizes="(min-width: 1024px) 400px, 76vw">
+                <img src="assets/films/denim-studio-760.jpg" width="760" height="950" loading="lazy" decoding="async" draggable="false" alt="Un modelo con campera y bermuda de jean apoyado contra una pared blanca.">
+              </picture>
+            </span>
+            <span class="film__num" aria-hidden="true">09</span>
+            <span class="film__title">Denim Studio</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Film y edición · Tejano Stores</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-hielo-y-aventura">
+          <a class="film__link" href="https://www.instagram.com/p/C9dfBktRSIg/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/hielo-y-aventura-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Grietas del glaciar y una bota con crampones sobre el hielo.">
+              <video muted loop playsinline preload="none" src="assets/films/hielo-y-aventura.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">10</span>
+            <span class="film__title">Hielo y Aventura</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Con Outdoor Partners · El Calafate</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-clan-ss24">
+          <a class="film__link" href="https://www.instagram.com/p/C6KW3wyR9rB/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/clan-ss24-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Flores silvestres rosadas entre el pasto.">
+              <video muted loop playsinline preload="none" src="assets/films/clan-ss24.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">11</span>
+            <span class="film__title">Clan</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">Essence · SS24</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+
+        <li class="film" id="film-clan-oi23">
+          <a class="film__link" href="https://www.instagram.com/reel/CryaOJcA-w2/" target="_blank" rel="noopener" draggable="false">
+            <span class="film__media">
+              <img src="assets/films/clan-oi23-poster.jpg" width="720" height="900" loading="lazy" decoding="async" draggable="false" alt="Una corredora de espaldas en un pasillo, filmada con lente ojo de pez.">
+              <video muted loop playsinline preload="none" src="assets/films/clan-oi23.mp4" aria-hidden="true" tabindex="-1"></video>
+            </span>
+            <span class="film__num" aria-hidden="true">12</span>
+            <span class="film__title">Clan</span>
+            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+            <span class="film__kind">The Future Is Now · OT/INV 23</span>
+            <span class="sr-only">(se abre en Instagram)</span>
+          </a>
+        </li>
+      </ol>
+      <span class="cursor-label" data-films-cursor aria-hidden="true">Ver en Instagram<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+    </div>
+  </section>
+
+  <!-- 3. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
+  <section class="about" id="sobre-mi" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 class="sr-only" id="about-h">Sobre mí</h2>
+      <p class="label" aria-hidden="true">Sobre mí</p>
+      <p class="statement" data-highlight>Hola, soy Manny. Filmmaker y animador <em>cordobés</em>: filmo campañas de moda y piezas de marca, y hago motion graphics para productos y eventos.</p>
+    </div>
+  </section>
+
+  <!-- 4. MOTION Y DISEÑO: con JS y pantalla grande, la sección queda fija y cada proyecto tapa al anterior al hacer scroll.
        Para sumar un proyecto: copiar un <li class="work"> completo, cambiar textos, enlace e imagen. El resto se calcula solo. -->
-  <section class="works" id="trabajos" aria-labelledby="works-h" data-works>
+  <section class="works" id="motion" aria-labelledby="works-h" data-works>
     <div class="works__stage">
       <div class="wrap works__grid">
         <header class="works__head">
-          <h2 id="works-h">Trabajos</h2>
+          <h2 id="works-h">Motion y diseño</h2>
           <p class="lead">Cuatro proyectos. Cada uno abre su ficha completa en Behance.</p>
         </header>
 
         <ol class="works__list">
-          <li class="work" id="trabajo-fieles" data-work>
-            <a class="work__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener">
-              <span class="work__num" aria-hidden="true">01</span>
-              <span class="work__title">Identidad gráfica para FIELES</span>
-              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-              <span class="sr-only">(se abre en Behance)</span>
-            </a>
-            <div class="work__detail">
-              <p class="work__kind">Identidad gráfica</p>
-              <p class="work__text">Congreso Internacional de Jóvenes, Córdoba 2023. Sistema gráfico y placas de oradores.</p>
-            </div>
-            <figure class="work__media">
-              <picture>
-                <source type="image/avif" srcset="assets/work/fieles-404.avif 404w, assets/work/fieles-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
-                <source type="image/webp" srcset="assets/work/fieles-404.webp 404w, assets/work/fieles-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
-                <img src="assets/work/fieles-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Placas del congreso FIELES con fotos y nombres de los oradores sobre fondos violeta, verde y naranja.">
-              </picture>
-            </figure>
-          </li>
-
-          <li class="work" id="trabajo-livingtree" data-work>
+          <li class="work" id="motion-livingtree" data-work>
             <a class="work__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener">
-              <span class="work__num" aria-hidden="true">02</span>
+              <span class="work__num" aria-hidden="true">01</span>
               <span class="work__title">LivingTree</span>
               <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
               <span class="sr-only">(se abre en Behance)</span>
@@ -156,29 +347,9 @@
             </figure>
           </li>
 
-          <li class="work" id="trabajo-naranja-x" data-work>
-            <a class="work__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener">
-              <span class="work__num" aria-hidden="true">03</span>
-              <span class="work__title">Naranja X</span>
-              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-              <span class="sr-only">(se abre en Behance)</span>
-            </a>
-            <div class="work__detail">
-              <p class="work__kind">Film y edición</p>
-              <p class="work__text">Filmación y montaje de una pieza para la marca.</p>
-            </div>
-            <figure class="work__media">
-              <picture>
-                <source type="image/avif" srcset="assets/work/naranja-x-404.avif 404w, assets/work/naranja-x-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
-                <source type="image/webp" srcset="assets/work/naranja-x-404.webp 404w, assets/work/naranja-x-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
-                <img src="assets/work/naranja-x-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Seis cuadros del proyecto Naranja X: el logo NX en una pared, la recepción de una oficina y detalles en naranja y violeta.">
-              </picture>
-            </figure>
-          </li>
-
-          <li class="work" id="trabajo-healthy-baby" data-work>
+          <li class="work" id="motion-healthy-baby" data-work>
             <a class="work__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener">
-              <span class="work__num" aria-hidden="true">04</span>
+              <span class="work__num" aria-hidden="true">02</span>
               <span class="work__title">Healthy Baby</span>
               <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
               <span class="sr-only">(se abre en Behance)</span>
@@ -195,47 +366,85 @@
               </picture>
             </figure>
           </li>
+
+          <li class="work" id="motion-fieles" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">03</span>
+              <span class="work__title">Identidad gráfica para FIELES</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Identidad gráfica</p>
+              <p class="work__text">Congreso Internacional de Jóvenes, Córdoba 2023. Sistema gráfico y placas de oradores.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/fieles-404.avif 404w, assets/work/fieles-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/fieles-404.webp 404w, assets/work/fieles-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/fieles-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Placas del congreso FIELES con fotos y nombres de los oradores sobre fondos violeta, verde y naranja.">
+              </picture>
+            </figure>
+          </li>
+
+          <li class="work" id="motion-naranja-x" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">04</span>
+              <span class="work__title">Naranja X</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Film y edición</p>
+              <p class="work__text">Filmación y montaje de una pieza para la marca.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/naranja-x-404.avif 404w, assets/work/naranja-x-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/naranja-x-404.webp 404w, assets/work/naranja-x-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/naranja-x-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Seis cuadros del proyecto Naranja X: el logo NX en una pared, la recepción de una oficina y detalles en naranja y violeta.">
+              </picture>
+            </figure>
+          </li>
         </ol>
 
         <div class="works__meta" aria-hidden="true">
           <p class="works__count"><span class="works__roll-mask"><span class="works__roll" data-works-roll></span></span><span class="works__total" data-works-total></span></p>
           <span class="works__bar"><span class="works__bar-fill" data-works-bar></span></span>
         </div>
-        <span class="works__cursor" data-works-cursor aria-hidden="true">Abrir en Behance<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+        <span class="cursor-label" data-works-cursor aria-hidden="true">Abrir en Behance<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
       </div>
     </div>
   </section>
 
-  <!-- 3. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
-  <section class="about" id="sobre-mi" aria-labelledby="about-h">
-    <div class="wrap">
-      <h2 class="sr-only" id="about-h">Sobre mí</h2>
-      <p class="label" aria-hidden="true">Sobre mí</p>
-      <p class="statement" data-highlight>Hola, soy Manny. Animador y filmmaker <em>cordobés</em>: hago motion graphics, filmación y edición para marcas y eventos.</p>
-    </div>
-  </section>
-
-  <!-- 4. SERVICIOS: cada fila lleva al proyecto que lo muestra. -->
+  <!-- 5. SERVICIOS: cada fila lleva a la pieza que lo muestra. -->
   <section class="services" id="servicios" aria-labelledby="services-h">
     <div class="wrap">
       <h2 id="services-h">Servicios</h2>
       <ul class="rows">
         <li>
-          <a class="row" href="#trabajo-livingtree">
+          <a class="row" href="#film-maycla-aw26">
+            <span class="row__name">Fashion films</span>
+            <span class="row__text">Campañas de temporada para marcas de moda, como Maycla, Level Six o Clan.</span>
+            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/films/row-fashion.webp" width="208" height="90" alt="" loading="lazy" decoding="async"></span>Ver Maycla<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="#film-hielo-y-aventura">
+            <span class="row__name">Filmación y edición</span>
+            <span class="row__text">Rodaje y montaje en locación, como el de Hielo y Aventura en El Calafate.</span>
+            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/films/row-location.webp" width="208" height="90" alt="" loading="lazy" decoding="async"></span>Ver Hielo y Aventura<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="#motion-livingtree">
             <span class="row__name">Motion graphics</span>
             <span class="row__text">Animación de producto y piezas de marca, como LivingTree y Healthy Baby.</span>
             <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/work/livingtree-208.webp" width="208" height="163" alt="" loading="lazy" decoding="async" style="object-position: 78% 60%"></span>Ver LivingTree<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
           </a>
         </li>
         <li>
-          <a class="row" href="#trabajo-naranja-x">
-            <span class="row__name">Filmación y edición</span>
-            <span class="row__text">Rodaje y montaje de piezas de marca, como la de Naranja X.</span>
-            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/work/naranja-x-208.webp" width="208" height="163" alt="" loading="lazy" decoding="async" style="object-position: 50% 28%"></span>Ver Naranja X<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
-          </a>
-        </li>
-        <li>
-          <a class="row" href="#trabajo-fieles">
+          <a class="row" href="#motion-fieles">
             <span class="row__name">Identidad gráfica</span>
             <span class="row__text">Sistemas gráficos para eventos, como el congreso FIELES.</span>
             <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/work/fieles-208.webp" width="208" height="163" alt="" loading="lazy" decoding="async" style="object-position: 40% 70%"></span>Ver FIELES<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
@@ -247,7 +456,7 @@
 
 </main>
 
-<!-- 5. CIERRE + PIE: una sola sección oscura. -->
+<!-- 6. CIERRE + PIE: una sola sección oscura. -->
 <footer class="closing" id="contacto" aria-labelledby="close-h">
   <div class="wrap close">
     <h2 class="close__title" id="close-h">Contame qué querés filmar o animar.</h2>

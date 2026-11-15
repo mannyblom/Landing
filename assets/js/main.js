@@ -4,6 +4,7 @@ import { initNav } from './nav.js';
 import { initClock } from './clock.js';
 import { initAnchors } from './anchors.js';
 import { initHero } from './hero.js';
+import { initFilms } from './films.js';
 import { initWorks } from './works.js';
 import { initStatement } from './statement.js';
 import { initMarquee } from './marquee.js';
@@ -11,7 +12,7 @@ import { initMarquee } from './marquee.js';
 const root = document.documentElement;
 const { gsap, ScrollTrigger, SplitText, Observer } = window;
 const ready = () => root.classList.add('is-ready');
-// Sin movimiento los videos de Trabajos no arrancan solos: quedan con su póster y controles.
+// Sin movimiento nada arranca solo: los videos quedan en su póster (los de Motion, con controles).
 const still = () => {
   ready();
   document.querySelectorAll('.work__media video').forEach((video) => { video.controls = true; });
@@ -29,7 +30,7 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
 
   const MOTION = '(prefers-reduced-motion: no-preference)';
   const FINE = '(hover: hover) and (pointer: fine)';
-  // La versión fija de Trabajos necesita lugar: ancho de escritorio y una ventana no muy baja.
+  // Las secciones fijas (Films y Motion) necesitan lugar: ancho de escritorio y una ventana no muy baja.
   const WIDE = '(min-width: 1024px) and (min-height: 700px)';
 
   if (!window.matchMedia(MOTION).matches) still();
@@ -41,11 +42,15 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
   Promise.race([fonts, timeout]).then(() => {
     const mm = gsap.matchMedia();
 
-    // Trabajos va primero: al fijarse cambia el alto de la página y lo demás se mide después.
+    // Las secciones fijas van primero: al fijarse cambian el alto de la página y lo demás se mide después.
     mm.add({ motion: MOTION, wide: WIDE, fine: FINE }, (ctx) => {
       const { motion, wide, fine } = ctx.conditions;
       if (!motion) return undefined;
-      return initWorks({ gsap, ScrollTrigger, pinned: wide, fine });
+      const cleanups = [
+        initFilms({ gsap, ScrollTrigger, Observer, pinned: wide, fine }),
+        initWorks({ gsap, ScrollTrigger, pinned: wide, fine }),
+      ];
+      return () => cleanups.forEach((fn) => typeof fn === 'function' && fn());
     });
 
     mm.add({ motion: MOTION, fine: FINE }, (ctx) => {

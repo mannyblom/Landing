@@ -1,17 +1,12 @@
-/* Trabajos.
+/* Motion y diseño.
    - Fija (escritorio): la sección queda en pantalla con position: sticky y el scroll pasa de un
      proyecto al siguiente: cada cuadro tapa al anterior desde abajo. Va y vuelve con la barra.
    - Apilada (tablet y teléfono): cada cuadro se abre una vez al entrar en pantalla.
    Los proyectos se leen del HTML: sumar un <li class="work"> alcanza.
    Un cuadro puede llevar <img> o <video muted loop playsinline poster="…">: el video corre solo
    mientras su proyecto está en pantalla. */
-
-let resolver = null;
-
-/** Posición de scroll de un proyecto cuando la sección está fija; null si no aplica. */
-export function chapterTop(target) {
-  return resolver ? resolver(target) : null;
-}
+import { addResolver } from './targets.js';
+import { cursorLabel } from './cursor.js';
 
 const play = (video) => {
   if (!video) return;
@@ -131,11 +126,11 @@ export function initWorks({ gsap, ScrollTrigger, pinned, fine }) {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const goTo = (i) => window.scrollTo({ top: topOf(i), behavior: reduce.matches ? 'auto' : 'smooth' });
 
-  // Enlaces a #trabajo-… (las filas de Servicios) y la carga con ese ancla en la URL.
-  resolver = (target) => {
+  // Enlaces a un proyecto (las filas de Servicios) y la carga con ese ancla en la URL.
+  const offResolver = addResolver((target) => {
     const i = items.indexOf(target);
     return i < 0 ? null : topOf(i);
-  };
+  });
   const fromHash = items.findIndex((item) => `#${item.id}` === window.location.hash);
   if (fromHash > 0) requestAnimationFrame(() => window.scrollTo({ top: topOf(fromHash), behavior: 'auto' }));
 
@@ -153,40 +148,12 @@ export function initWorks({ gsap, ScrollTrigger, pinned, fine }) {
   };
   medias.forEach((media) => media.addEventListener('click', onFrameClick));
 
-  let offCursor = null;
-  if (fine) {
-    const cursor = section.querySelector('[data-works-cursor]');
-    const grid = section.querySelector('.works__grid');
-    section.classList.add('has-cursor');
-    gsap.set(cursor, { autoAlpha: 0, scale: 0.7, transformOrigin: '0% 0%' });
-    const xTo = gsap.quickTo(cursor, 'x', { duration: 0.35, ease: 'power3' });
-    const yTo = gsap.quickTo(cursor, 'y', { duration: 0.35, ease: 'power3' });
-    const place = (e, jump) => {
-      const r = grid.getBoundingClientRect();
-      const x = e.clientX - r.left + 16;
-      const y = e.clientY - r.top + 18;
-      if (jump) { xTo(x, x); yTo(y, y); } else { xTo(x); yTo(y); }
-    };
-    const onEnter = (e) => { place(e, true); gsap.to(cursor, { autoAlpha: 1, scale: 1, duration: 0.3, ease: 'power3.out', overwrite: 'auto' }); };
-    const onMove = (e) => place(e, false);
-    const onLeave = () => gsap.to(cursor, { autoAlpha: 0, scale: 0.7, duration: 0.2, ease: 'power2.in', overwrite: 'auto' });
-    medias.forEach((media) => {
-      media.addEventListener('pointerenter', onEnter);
-      media.addEventListener('pointermove', onMove, { passive: true });
-      media.addEventListener('pointerleave', onLeave);
-    });
-    offCursor = () => {
-      section.classList.remove('has-cursor');
-      medias.forEach((media) => {
-        media.removeEventListener('pointerenter', onEnter);
-        media.removeEventListener('pointermove', onMove);
-        media.removeEventListener('pointerleave', onLeave);
-      });
-    };
-  }
+  const offCursor = fine
+    ? cursorLabel({ gsap, host: section.querySelector('.works__grid'), label: section.querySelector('[data-works-cursor]'), targets: medias })
+    : null;
 
   return () => {
-    resolver = null;
+    offResolver();
     videos.forEach(pause);
     if (offCursor) offCursor();
     links.forEach((link) => link.removeEventListener('focus', onFocus));

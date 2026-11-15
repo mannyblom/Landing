@@ -1,6 +1,6 @@
 /* Enlaces internos (#trabajos, #servicios…): desplazamiento suave si el visitante no pidió
    movimiento reducido, y el foco pasa al destino para que el teclado siga desde ahí. */
-import { chapterTop } from './works.js';
+import { resolveTop } from './targets.js';
 
 export function initAnchors() {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -15,7 +15,7 @@ export function initAnchors() {
 
     e.preventDefault();
     const behavior = reduce.matches ? 'auto' : 'smooth';
-    const top = chapterTop(target); // un proyecto dentro de la sección fija tiene su propia posición
+    const top = resolveTop(target); // una pieza dentro de una sección fija tiene su propia posición
     if (top !== null) window.scrollTo({ top, behavior });
     else target.scrollIntoView({ behavior, block: 'start' });
 

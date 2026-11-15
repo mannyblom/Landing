@@ -17,18 +17,22 @@ Y abrí <http://localhost:4173>. Al guardar un cambio, recargá la página.
 ## Qué hay en cada lugar
 
 ```
-index.html                 todo el contenido: textos, proyectos, enlaces
+index.html                 todo el contenido: textos, piezas, enlaces
 404.html                   página de enlace roto
 assets/css/site.css        el sistema visual (colores, tipografía, espacios) y cada sección
 assets/js/main.js          enciende el movimiento según pantalla y preferencias
 assets/js/hero.js          entrada del título y letras que responden al puntero
-assets/js/works.js         sección Trabajos: fija en escritorio, apilada en teléfono
+assets/js/films.js         sección Films: carrete horizontal fijo en escritorio, fila deslizable en teléfono
+assets/js/works.js         sección Motion y diseño: fija en escritorio, apilada en teléfono
 assets/js/statement.js     la frase de "Sobre mí" que se enciende con el scroll
 assets/js/marquee.js       el nombre del pie: corre, se arrastra, se estira
 assets/js/nav.js           menú del teléfono y marca de la sección actual
 assets/js/anchors.js       enlaces internos con desplazamiento suave
+assets/js/targets.js       posiciones de scroll de las piezas dentro de las secciones fijas
+assets/js/cursor.js        la etiqueta que sigue al puntero sobre los cuadros
 assets/js/clock.js         la hora de Córdoba en el pie
-assets/work/               imágenes (y videos) de los proyectos
+assets/films/              loops, pósters y fotos de los films (de tus publicaciones de Instagram)
+assets/work/               imágenes de los proyectos de motion (de tus fichas de Behance)
 assets/fonts/              Archivo variable, alojada acá
 assets/vendor/gsap-3.15.1/ GSAP y sus plugins
 vercel.json                caché y cabeceras para Vercel
@@ -38,39 +42,33 @@ vercel.json                caché y cabeceras para Vercel
 
 Todo se edita en `index.html`. Los textos están a la vista; no hay que tocar JavaScript.
 
-### Sumar un proyecto
+### Sumar un film
 
-En la sección `<section class="works">`, copiá un `<li class="work" …>` completo, pegalo donde
-quieras que aparezca y cambiá:
+En `<section class="films">`, copiá un `<li class="film">` completo, pegalo donde quieras en el
+orden y cambiá:
 
-- `id="trabajo-…"`: un nombre corto sin espacios (sirve para enlazarlo).
-- el `href` del enlace y el número (`01`, `02`…).
-- el título, la línea de tipo (`work__kind`) y la descripción (`work__text`).
-- la imagen o el video (abajo) y su texto alternativo (`alt`): qué se ve, en una frase.
+- `id="film-…"`: un nombre corto sin espacios (sirve para enlazarlo desde Servicios).
+- el `href` (tu publicación de Instagram) y el número (`01`, `02`…).
+- el título, la línea de abajo (`film__kind`) y el texto alternativo (`alt`).
+- los archivos: un póster `.jpg` y un `.mp4` en `assets/films/`, o solo una foto (dejando el
+  bloque `<picture>` como en Dolores Reynal). Una pieza apaisada lleva `class="film film--wide"`.
 
-El contador, la barra de avance y el largo del scroll se calculan solos.
+El video ideal: mp4 H.264, sin audio, 6 a 12 segundos, menos de 2 MB, con el póster sacado del
+primer cuadro del loop. Los videos corren solo cuando su cuadro está en pantalla; el botón
+"Pausar videos" los detiene todos.
 
-### Poner un video en un proyecto
+### Sumar un proyecto de motion
 
-Guardá el archivo en `assets/work/` (mp4 H.264, sin audio, idealmente 6 a 12 segundos y menos
-de 4 MB) y reemplazá el bloque `<picture>…</picture>` del proyecto por:
-
-```html
-<video muted loop playsinline preload="metadata"
-       poster="assets/work/mi-proyecto-poster.jpg"
-       src="assets/work/mi-proyecto.mp4"></video>
-```
-
-El video corre solo mientras su proyecto está en pantalla y se pausa al salir. Si quien visita
-pidió "reducir movimiento" en su sistema, queda en pausa con el póster y los controles.
-
-Si los cuadros pasan a ser 16:9, cambiá una línea en `assets/css/site.css`:
-`--frame-r: 1.7778;` (dentro de `.works`).
+Igual, en `<section class="works">`: copiá un `<li class="work" …>` completo y cambiá id,
+enlace, número, textos e imagen. El contador, la barra y el largo del scroll se calculan solos.
+Un proyecto de motion también acepta video: reemplazá su `<picture>` por
+`<video muted loop playsinline poster="…" src="…"></video>`. Si esos cuadros pasan a ser 16:9,
+cambiá `--frame-r: 1.7778;` en `.works` (en `site.css`).
 
 ### Imágenes
 
-Las portadas actuales vienen de Behance (808 px de ancho). Con originales más grandes se ven
-más nítidas: lo ideal es 1700 px de ancho o más, en `.avif`/`.webp` con un `.jpg` de respaldo.
+Los recortes actuales vienen de tus publicaciones (720 a 1440 px). Con los archivos originales
+de cada campaña se ven más nítidos: lo ideal es 1700 px de ancho o más por pieza.
 
 ### El título del inicio
 
@@ -82,18 +80,21 @@ Si cambia el texto del título hay que volver a medir esos números.
 
 | Dónde | Qué pasa | Para qué |
 |---|---|---|
-| Inicio, al cargar | Los renglones suben, las letras se sueltan de angostas a su ancho, las píldoras se abren con cortes entre proyectos | Primero llega el título; después, qué hacer |
+| Inicio, al cargar | Los renglones suben, las letras se sueltan de angostas a su ancho, las píldoras se abren con cortes entre films | Primero llega el título; después, qué hacer |
 | Inicio, con el mouse | La letra bajo el puntero se ensancha y engorda; las demás ceden ese ancho | La tipografía como instrumento: es el oficio |
-| Trabajos, con el scroll | La sección queda fija y cada cuadro tapa al anterior desde abajo; cambian título, ficha y contador | Cuatro proyectos en el espacio de una pantalla |
-| Trabajos, con el mouse | Una etiqueta sigue al puntero sobre el cuadro | Dice a dónde lleva el clic |
+| Films, con el scroll | La sección queda fija y el scroll (o arrastrar) mueve el carrete de lado; los videos corren solos | Doce piezas, una al lado de la otra, sin salir de la pantalla |
+| Films, con el mouse | Una etiqueta sigue al puntero ("Ver en Instagram") | Dice a dónde lleva el clic |
+| Motion, con el scroll | La sección queda fija y cada cuadro tapa al anterior desde abajo; cambian título, ficha y contador | Cuatro proyectos en el espacio de una pantalla |
 | Sobre mí, con el scroll | La frase se enciende palabra por palabra | Marca el ritmo de lectura |
-| Servicios, con el mouse | El nombre se ensancha y la píldora se abre | Cada servicio lleva a su proyecto |
+| Servicios, con el mouse | El nombre se ensancha y la píldora se abre | Cada servicio lleva a su pieza |
 | Pie | El nombre corre, se arrastra y se estira con la velocidad | La firma; tiene botón de pausa |
 
 Reglas que cumple todo el movimiento:
 
-- La página está completa sin JavaScript y con "reducir movimiento" activado: nada queda oculto.
-- En teléfono y tablet la sección Trabajos no se fija: los cuadros se abren una vez al entrar.
+- La página está completa sin JavaScript y con "reducir movimiento" activado: nada queda oculto
+  y ningún video arranca solo (quedan con su póster y controles).
+- En teléfono y tablet nada se fija: Films es una fila que se desliza con el dedo y los cuadros
+  de Motion se abren una vez al entrar.
 - No hay librería de scroll suave: el scroll es el del navegador.
 
 ## Publicar
