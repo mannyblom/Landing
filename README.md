@@ -23,7 +23,9 @@ assets/css/site.css        el sistema visual (colores, tipografía, espacios) y 
 assets/js/main.js          enciende el movimiento según pantalla y preferencias
 assets/js/hero.js          entrada del título y letras que responden al puntero
 assets/js/films.js         sección Films: carrete horizontal fijo en escritorio, fila deslizable en teléfono
-assets/js/works.js         sección Motion y diseño: fija en escritorio, apilada en teléfono
+assets/js/reel.js          página Motion: galería horizontal fija en escritorio, lista vertical en teléfono
+motion.html                la página de motion design (/motion)
+assets/js/transition.js    la cortina al pasar de Film a Motion
 assets/js/statement.js     la frase de "Sobre mí" que se enciende con el scroll
 assets/js/marquee.js       el nombre del pie: corre, se arrastra, se estira
 assets/js/nav.js           menú del teléfono y marca de la sección actual
@@ -71,7 +73,14 @@ El video ideal: mp4 H.264, sin audio, 6 a 12 segundos, menos de 2 MB, con el pó
 primer cuadro del loop. Los videos corren solo cuando su cuadro está en pantalla; el botón
 "Pausar videos" los detiene todos.
 
-### Sumar un proyecto de motion
+### Página de motion (/motion)
+
+Es una galería: cada proyecto es un `<li class="reel__item">` en `motion.html`, con `data-title`
+(el título grande que aparece detrás), el nombre, la etiqueta, el enlace y su archivo. Para poner un
+video, reemplazá el `<img>` por `<video muted loop playsinline preload="none" poster="…jpg" src="…mp4"></video>`;
+un gif va directo como `<img src="….gif">`. El video corre solo cuando su proyecto está en el centro.
+
+### Sumar un proyecto de motion (sección vieja, hoy sin uso)
 
 Igual, en `<section class="works">`: copiá un `<li class="work" …>` completo y cambiá id,
 enlace, número, textos e imagen. El contador, la barra y el largo del scroll se calculan solos.
