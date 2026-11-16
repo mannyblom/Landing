@@ -23,8 +23,7 @@ assets/css/site.css        el sistema visual (colores, tipografía, espacios) y 
 assets/js/main.js          enciende el movimiento según pantalla y preferencias
 assets/js/hero.js          entrada del título y letras que responden al puntero
 assets/js/films.js         sección Films: carrete horizontal fijo en escritorio, fila deslizable en teléfono
-assets/js/reel.js          página Motion: galería horizontal fija en escritorio, lista vertical en teléfono
-motion.html                la página de motion design (/motion)
+motion.html                la página de motion design (/motion): la de Film en negativo
 assets/js/transition.js    la cortina al pasar de Film a Motion
 assets/js/statement.js     la frase de "Sobre mí" que se enciende con el scroll
 assets/js/marquee.js       el nombre del pie: corre, se arrastra, se estira
@@ -75,10 +74,10 @@ primer cuadro del loop. Los videos corren solo cuando su cuadro está en pantall
 
 ### Página de motion (/motion)
 
-Es una galería: cada proyecto es un `<li class="reel__item">` en `motion.html`, con `data-title`
-(el título grande que aparece detrás), el nombre, la etiqueta, el enlace y su archivo. Para poner un
-video, reemplazá el `<img>` por `<video muted loop playsinline preload="none" poster="…jpg" src="…mp4"></video>`;
-un gif va directo como `<img src="….gif">`. El video corre solo cuando su proyecto está en el centro.
+Es la misma página que Film, en negativo. Sus proyectos usan el mismo carrete: cada uno es un
+`<li class="film film--work">` en `motion.html`. Para un video, agregá
+`<video muted loop playsinline preload="none" src="…mp4"></video>` después de la imagen (la imagen
+queda como póster); un gif va directo como `<img src="….gif">`.
 
 ### Sumar un proyecto de motion (sección vieja, hoy sin uso)
 

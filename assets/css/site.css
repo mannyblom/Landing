@@ -1183,156 +1183,21 @@ html.is-wiping .wipe { transform: none; visibility: visible; }
   --line: rgb(222 218 211 / 0.16);
   --focus: var(--accent);
 
-  /* todo plano y oscuro: las bandas no cambian de color */
-  --dark: #0a0a0a;
-  --dark-raise: #161615;
-  --dark-ink: #dedad3;
-  --dark-muted: #a8a39b;
-  --dark-rest: #77736c;
-  --dark-line: rgb(222 218 211 / 0.16);
-  --accent-on-dark: #6bb8cb;
+  /* en negativo: las bandas que en Film son oscuras acá son claras */
+  --dark: #dedad3;
+  --dark-raise: #d3cec6;
+  --dark-ink: #0a0a0a;
+  --dark-muted: #5c5852;
+  --dark-rest: #696660;
+  --dark-line: rgb(10 10 10 / 0.14);
+  --accent-on-dark: #256f82;
 }
 .theme-motion ::selection { background: var(--ink); color: var(--bg); }
 
-/* ---------- Galería de Motion ---------- */
-.reel { --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace; }
-.reel__stage { padding: calc(var(--nav) + 32px) 0 72px; }
-.reel__bar {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
-}
-.reel__h, .reel__count {
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 500;
-  font-stretch: 100%;
-  letter-spacing: 0;
-}
-.reel__count { font-family: var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
-.reel__titles { display: none; }
-
-/* Lista (sin JS, movimiento reducido, celular y tablet) */
-.reel__track { display: flex; flex-direction: column; }
-.reel__item { border-bottom: 1px solid var(--line); }
-.reel__link {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 14px 0 36px;
-  text-decoration: none;
-  overflow: hidden;
-}
-.reel__meta {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  width: min(100% - 2 * var(--gut), 1280px);
-  margin-bottom: 18px;
-  font-size: 14px;
-  line-height: 18px;
-}
-.reel__name { font-weight: 500; }
-.reel__tag { display: none; } /* menos texto: el título grande ya nombra el proyecto */
-.reel__media {
-  position: relative;
-  z-index: 1;
-  display: block;
-  width: min(100% - 2 * var(--gut), 1000px);
-  aspect-ratio: 808 / 632;
-  overflow: hidden;
-  background: var(--surface);
-}
-.reel__media img, .reel__media video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.reel__big { display: none; }
-
-.reel.is-list .reel__big {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  display: block;
-  font-size: 22vw;
-  line-height: 1;
-  font-weight: 420;
-  letter-spacing: -0.05em;
-  white-space: nowrap;
-  translate: -50% -38%;
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 700ms var(--ease-enter);
-}
-.reel.is-list .reel__item.is-active .reel__big { clip-path: inset(0 0 0 0); }
-
-/* Escritorio: carrete horizontal fijo */
-.reel.is-pinned { height: calc(100svh + (var(--n, 4) - 1) * 75svh); }
-.reel.is-pinned .reel__stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  padding-bottom: 0;
-}
-.reel.is-pinned .reel__titles {
-  position: absolute;
-  inset: 0;
-  z-index: 1; /* entre los laterales (debajo) y el del centro (encima) */
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-}
-.reel__title {
-  grid-area: 1 / 1;
-  overflow: clip;
-  padding: 0.04em 0 0.08em;
-  translate: 0 calc((var(--nav) + 66px) / 2);
-  line-height: 1;
-  font-weight: 420;
-  letter-spacing: -0.05em;
-  white-space: nowrap;
-  font-kerning: none;
-}
-.reel__char { display: inline-block; }
-.reel.is-pinned .reel__item { position: relative; z-index: 0; will-change: transform; }
-.reel.is-pinned .reel__item.is-active { z-index: 2; }
-.reel.is-pinned .reel__track {
-  /* grande: lo que dé el alto de pantalla bajo la barra, hasta 60% del ancho */
-  --w: min(60vw, calc((100svh - var(--nav) - 150px) * 1.278));
-  position: absolute;
-  top: calc(50% + (var(--nav) + 66px) / 2 - var(--w) * 0.391); /* centrado: la mitad del alto del cuadro */
-  left: 0;
-  flex-direction: row;
-  align-items: center;
-  gap: 0;
-  padding-left: calc(50vw - var(--w) / 2);
-}
-.reel.is-pinned .reel__item { flex: none; width: var(--w); margin-right: calc(var(--w) * -0.14); border: 0; } /* los laterales están achicados: se acercan para asomar */
-.reel.is-pinned .reel__link { padding: 0; overflow: visible; }
-.reel.is-pinned .reel__meta { display: none; }
-.reel.is-pinned .reel__media { width: 100%; transform-origin: 50% 50%; will-change: transform; }
-.reel.is-pinned .reel__item:not(.is-active) .reel__link { cursor: pointer; }
-@media (hover: hover) and (pointer: fine) {
-  .reel.is-pinned .reel__item.is-active .reel__media img,
-  .reel.is-pinned .reel__item.is-active .reel__media video { transition: transform 700ms var(--ease-enter); }
-  .reel.is-pinned .reel__item.is-active .reel__link:hover img,
-  .reel.is-pinned .reel__item.is-active .reel__link:hover video { transform: scale(1.03); }
-}
-
-@media (max-width: 639px) {
-  .reel__stage { padding-top: calc(var(--nav) + 24px); }
-  .reel__media { width: 100%; max-width: calc(100% - 2 * var(--gut)); }
-}
+/* Proyectos de motion en el carrete de Films: cuadros apaisados como las piezas */
+.film--work { width: clamp(288px, 86vw, 640px); }
+.film--work .film__media { aspect-ratio: 808 / 632; }
+.films.is-pinned .film--work { width: calc(var(--card-h) * 1.278); }
 
 /* ---------- Movimiento reducido: todo queda en su estado final ---------- */
 @media (prefers-reduced-motion: reduce) {

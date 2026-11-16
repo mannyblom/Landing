@@ -5,7 +5,6 @@ import { initClock } from './clock.js';
 import { initContact } from './contact.js';
 import { initAnchors } from './anchors.js';
 import { initHero } from './hero.js';
-import { initReel } from './reel.js';
 import { initTransition } from './transition.js';
 import { initFilms } from './films.js';
 import { initWorks } from './works.js';
@@ -54,7 +53,6 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
       const cleanups = [
         initFilms({ gsap, ScrollTrigger, Observer, pinned: wide, fine }),
         initWorks({ gsap, ScrollTrigger, pinned: wide, fine }),
-        initReel({ gsap, ScrollTrigger, SplitText, pinned: wide }),
       ];
       return () => cleanups.forEach((fn) => typeof fn === 'function' && fn());
     });
