@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es-AR" class="theme-motion">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>mannyblom · Motion designer en Córdoba</title>
+<meta name="description" content="Manny Blom, motion designer de Córdoba, Argentina: animación de producto, motion graphics e identidad gráfica para marcas y eventos.">
+<meta name="theme-color" content="#0a0a0a">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="mannyblom · Motion designer">
+<meta property="og:description" content="Animación de producto, motion graphics e identidad gráfica, desde Córdoba, Argentina.">
+<meta property="og:image" content="https://mannyblom.vercel.app/share-motion.jpg">
+<meta property="og:url" content="https://mannyblom.vercel.app/motion">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mannyblom.vercel.app/motion">
+<!-- Con dominio propio: actualizar canonical, og:url y og:image -->
+<!-- Íconos: .ico y .png para Safari y navegadores viejos, .svg para los que lo soportan, el de iPhone y el manifiesto. -->
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="application-name" content="mannyblom">
+<meta name="apple-mobile-web-app-title" content="mannyblom">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="modulepreload" href="assets/js/main.js">
+<link rel="modulepreload" href="assets/js/nav.js">
+<link rel="modulepreload" href="assets/js/clock.js">
+<link rel="modulepreload" href="assets/js/contact.js">
+<link rel="modulepreload" href="assets/js/anchors.js">
+<link rel="modulepreload" href="assets/js/targets.js">
+<link rel="modulepreload" href="assets/js/cursor.js">
+<link rel="modulepreload" href="assets/js/motion-hero.js">
+<link rel="modulepreload" href="assets/js/works.js">
+<link rel="modulepreload" href="assets/js/transition.js">
+<link rel="modulepreload" href="assets/js/statement.js">
+<link rel="modulepreload" href="assets/js/marquee.js">
+<script>
+  /* Las animaciones solo esconden algo si este script corrió; si el JS tarda o falla, a los 2,5 s todo queda visible. */
+  (function (d) {
+    d.classList.add('js');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('is-ready');
+    else setTimeout(function () { d.classList.add('is-ready'); }, 2500);
+  })(document.documentElement);
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Manny Blom",
+  "jobTitle": "Motion designer",
+  "email": "mannyblom@gmail.com",
+  "telephone": "+54 9 351 773 9150",
+  "address": { "@type": "PostalAddress", "addressLocality": "Córdoba", "addressCountry": "AR" },
+  "sameAs": ["https://www.instagram.com/mannyblom/", "https://www.behance.net/mannyblom"]
+}
+</script>
+<script>
+  /* Transición entre Film y Motion: si se llega desde la otra página, arranca tapada y se destapa. */
+  try { var w = sessionStorage.getItem('wipe'), d = document.documentElement; sessionStorage.removeItem('wipe'); if (w && !matchMedia('(prefers-reduced-motion: reduce)').matches) { d.classList.add('is-wiping'); d.dataset.wipeLabel = w; setTimeout(function () { d.classList.remove('is-wiping'); }, 2000); } } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="nav" data-nav>
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <a class="brand" href="#inicio">
+      <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.5"/><circle cx="17.5" cy="6.5" r="4.5"/><circle cx="6.5" cy="17.5" r="4.5"/><rect x="13" y="13" width="9" height="9" rx="1.5"/></svg>
+      <span class="brand__name">Manny Blom</span>
+    </a>
+    <nav class="switch" aria-label="Portfolio">
+      <a class="switch__opt" href="/" data-wipe="#dedad3">Film</a>
+      <a class="switch__opt" href="/motion" aria-current="page">Motion</a>
+    </nav>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#proyectos" data-spy="proyectos">Proyectos</a>
+      <a href="#sobre-mi" data-spy="sobre-mi">Sobre mí</a>
+      <a href="#servicios" data-spy="servicios">Servicios</a>
+    </nav>
+    <a class="btn btn--primary nav__cta" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+      <span class="nav__toggle-label">Menú</span>
+      <span class="nav__toggle-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<div class="sheet" id="menu" data-menu hidden>
+  <div class="wrap sheet__in">
+    <nav class="sheet__links" aria-label="Menú">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#servicios">Servicios</a>
+    </nav>
+    <a class="btn btn--primary sheet__cta" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
+  </div>
+</div>
+
+<div class="wipe" aria-hidden="true" data-wipe-layer></div>
+
+<main id="contenido">
+
+  <!-- 1. HERO: la palabra ocupa el ancho; debajo, formas con cuadros de los proyectos que cambian de forma al pasar el mouse. -->
+  <section class="mhero" id="inicio" aria-labelledby="hero-h" data-motion-hero>
+    <div class="wrap mhero__wrap">
+      <h1 class="mhero__title" id="hero-h"><span class="mhero__word" data-fit>Motion</span><span class="mhero__sub">designer en Córdoba</span></h1>
+      <ul class="shapes" aria-label="Proyectos de motion">
+        <li class="shape shape--circle"><img src="assets/work/livingtree-808.jpg" srcset="assets/work/livingtree-404.jpg 404w, assets/work/livingtree-808.jpg 808w" sizes="(min-width: 1024px) 240px, 30vw" width="808" height="632" alt="Envases de Colágeno Ortomolecular de LivingTree." style="object-position: 50% 40%"></li>
+        <li class="shape shape--round"><img src="assets/work/fieles-808.jpg" srcset="assets/work/fieles-404.jpg 404w, assets/work/fieles-808.jpg 808w" sizes="(min-width: 1024px) 240px, 30vw" width="808" height="632" alt="Placas de oradores del congreso FIELES." style="object-position: 58% 40%"></li>
+        <li class="shape shape--circle shape--cta"><a href="#proyectos"><svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg><span>Ver proyectos</span></a></li>
+        <li class="shape shape--round"><img src="assets/work/naranja-x-808.jpg" srcset="assets/work/naranja-x-404.jpg 404w, assets/work/naranja-x-808.jpg 808w" sizes="(min-width: 1024px) 240px, 30vw" width="808" height="632" alt="El logo NX de Naranja X en una pared." style="object-position: 18% 26%"></li>
+        <li class="shape shape--circle"><img src="assets/work/healthy-baby-808.jpg" srcset="assets/work/healthy-baby-404.jpg 404w, assets/work/healthy-baby-808.jpg 808w" sizes="(min-width: 1024px) 240px, 30vw" width="808" height="632" alt="Pañal de Healthy Baby con el sello EWG Verified." style="object-position: 50% 64%"></li>
+      </ul>
+
+      <div class="hero__foot mhero__foot">
+        <div class="hero__intro" data-rise>
+          <p class="lead">Animo productos, marcas y eventos: del sistema gráfico de un congreso al motion de un envase.</p>
+          <div class="btn-row">
+            <a class="btn btn--primary" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
+            <a class="btn btn--text" href="#proyectos">Ver proyectos</a>
+          </div>
+        </div>
+        <dl class="facts" data-rise>
+          <div class="facts__row"><dt>Base</dt><dd>Córdoba, Argentina</dd></div>
+          <div class="facts__row"><dt>Disciplinas</dt><dd>Motion graphics, animación de producto e identidad</dd></div>
+          <div class="facts__row"><dt>Disponibilidad</dt><dd>Freelance y full-time</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SOBRE MÍ -->
+  <section class="about" id="sobre-mi" aria-labelledby="about-h">
+    <div class="wrap">
+      <h2 class="sr-only" id="about-h">Sobre mí</h2>
+      <p class="label" aria-hidden="true">Sobre mí</p>
+      <p class="statement" data-highlight>Diseño y animo piezas que explican un producto en segundos: <em>envases que giran</em>, sistemas gráficos para eventos y <em>placas que se mueven</em>.</p>
+    </div>
+  </section>
+
+  <!-- 3. PROYECTOS: con JS y pantalla grande, la sección queda fija y cada proyecto tapa al anterior al hacer scroll.
+       Para sumar un proyecto: copiar un <li class="work"> completo, cambiar textos, enlace e imagen. El resto se calcula solo. -->
+  <section class="works" id="proyectos" aria-labelledby="works-h" data-works>
+    <div class="works__stage">
+      <div class="wrap works__grid">
+        <header class="works__head">
+          <h2 id="works-h">Proyectos</h2>
+          <p class="lead">Cuatro proyectos. Cada uno abre su ficha completa en Behance.</p>
+        </header>
+
+        <ol class="works__list">
+          <li class="work" id="motion-livingtree" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">01</span>
+              <span class="work__title">LivingTree</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Motion design</p>
+              <p class="work__text">Animación de producto para la línea Colágeno Ortomolecular.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/livingtree-404.avif 404w, assets/work/livingtree-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/livingtree-404.webp 404w, assets/work/livingtree-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/livingtree-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Cuadro de la animación de LivingTree: envases de Colágeno Ortomolecular sobre fondo negro y verde.">
+              </picture>
+            </figure>
+          </li>
+
+          <li class="work" id="motion-healthy-baby" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">02</span>
+              <span class="work__title">Healthy Baby</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Motion design, 2022</p>
+              <p class="work__text">Animación de producto para una marca de pañales.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/healthy-baby-404.avif 404w, assets/work/healthy-baby-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/healthy-baby-404.webp 404w, assets/work/healthy-baby-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/healthy-baby-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Cuadro de la animación de Healthy Baby: un pañal blanco sobre fondo celeste con el sello EWG Verified.">
+              </picture>
+            </figure>
+          </li>
+
+          <li class="work" id="motion-fieles" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">03</span>
+              <span class="work__title">Identidad gráfica para FIELES</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Identidad gráfica</p>
+              <p class="work__text">Congreso Internacional de Jóvenes, Córdoba 2023. Sistema gráfico y placas de oradores.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/fieles-404.avif 404w, assets/work/fieles-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/fieles-404.webp 404w, assets/work/fieles-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/fieles-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Placas del congreso FIELES con fotos y nombres de los oradores sobre fondos violeta, verde y naranja.">
+              </picture>
+            </figure>
+          </li>
+
+          <li class="work" id="motion-naranja-x" data-work>
+            <a class="work__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener">
+              <span class="work__num" aria-hidden="true">04</span>
+              <span class="work__title">Naranja X</span>
+              <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
+              <span class="sr-only">(se abre en Behance)</span>
+            </a>
+            <div class="work__detail">
+              <p class="work__kind">Film y edición</p>
+              <p class="work__text">Filmación y montaje de una pieza para la marca.</p>
+            </div>
+            <figure class="work__media">
+              <picture>
+                <source type="image/avif" srcset="assets/work/naranja-x-404.avif 404w, assets/work/naranja-x-808.avif 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <source type="image/webp" srcset="assets/work/naranja-x-404.webp 404w, assets/work/naranja-x-808.webp 808w" sizes="(min-width: 1024px) 60vw, 100vw">
+                <img src="assets/work/naranja-x-808.jpg" width="808" height="632" loading="lazy" decoding="async" alt="Seis cuadros del proyecto Naranja X: el logo NX en una pared, la recepción de una oficina y detalles en naranja y violeta.">
+              </picture>
+            </figure>
+          </li>
+        </ol>
+
+        <div class="works__meta" aria-hidden="true">
+          <p class="works__count"><span class="works__roll-mask"><span class="works__roll" data-works-roll></span></span><span class="works__total" data-works-total></span></p>
+          <span class="works__bar"><span class="works__bar-fill" data-works-bar></span></span>
+        </div>
+        <span class="cursor-label" data-works-cursor aria-hidden="true">Abrir en Behance<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICIOS -->
+  <section class="services" id="servicios" aria-labelledby="services-h">
+    <div class="wrap">
+      <h2 id="services-h">Servicios</h2>
+      <ul class="rows">
+        <li>
+          <a class="row" href="#motion-livingtree">
+            <span class="row__name">Animación de producto</span>
+            <span class="row__text">Envases y productos en movimiento para redes y lanzamientos, como LivingTree y Healthy Baby.</span>
+            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/work/livingtree-208.webp" width="208" height="163" alt="" loading="lazy" decoding="async" style="object-position: 78% 60%"></span>Ver LivingTree<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="#motion-fieles">
+            <span class="row__name">Identidad gráfica</span>
+            <span class="row__text">Sistemas gráficos y placas animadas para eventos, como el congreso FIELES.</span>
+            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/work/fieles-208.webp" width="208" height="163" alt="" loading="lazy" decoding="async" style="object-position: 40% 70%"></span>Ver FIELES<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a class="row" href="/" data-wipe="#dedad3">
+            <span class="row__name">Filmación</span>
+            <span class="row__text">Fashion films y piezas de marca, en su propia página.</span>
+            <span class="row__go"><span class="pill pill--row" aria-hidden="true"><img src="assets/films/row-fashion.webp" width="208" height="90" alt="" loading="lazy" decoding="async"></span>Ver films<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- 6. CONTACTO + PIE: una sola sección oscura. Para cambiar un dato, editá su fila: el texto que se ve
+     y el enlace (mailto:, wa.me/ con el número sin espacios ni +, o el perfil). -->
+<footer class="closing" id="contacto" aria-label="Contacto">
+  <div class="wrap close">
+    <p class="label label--dark" aria-hidden="true">Contacto</p>
+    <h2 class="close__title" id="close-h">Contame qué querés filmar o animar.</h2>
+    <p class="lead">Escribime por mail, WhatsApp o Instagram y vemos fechas y alcance.</p>
+
+    <ul class="contact">
+      <li class="contact__row">
+        <span class="contact__label">Mail</span>
+        <a class="contact__value" href="mailto:mannyblom@gmail.com?subject=Consulta%20desde%20el%20portfolio"><span class="contact__text">mannyblom@gmail.com</span><svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+        <button class="contact__copy" type="button" data-copy="mannyblom@gmail.com" hidden>
+          <svg class="contact__icon contact__icon--copy" viewBox="0 0 16 16" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H3A1.5 1.5 0 0 0 1.5 3v6A1.5 1.5 0 0 0 3 10.5h.5"/></svg>
+          <svg class="contact__icon contact__icon--done" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.5 3.2 3L13 4.5"/></svg>
+          <span data-copy-label>Copiar mail</span>
+        </button>
+      </li>
+      <li class="contact__row">
+        <span class="contact__label">WhatsApp</span>
+        <a class="contact__value" href="https://wa.me/5493517739150?text=Hola%20Manny%2C%20vi%20tu%20portfolio%20y%20te%20quer%C3%ADa%20consultar%20por%20un%20proyecto." target="_blank" rel="noopener"><span class="contact__text">+54 9 351 773 9150</span><svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg><span class="sr-only">(abre WhatsApp)</span></a>
+      </li>
+      <li class="contact__row">
+        <span class="contact__label">Instagram</span>
+        <a class="contact__value" href="https://www.instagram.com/mannyblom/" target="_blank" rel="noopener"><span class="contact__text">@mannyblom</span><svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg><span class="sr-only">(abre Instagram)</span></a>
+      </li>
+    </ul>
+    <p class="sr-only" role="status" data-copy-status></p>
+  </div>
+
+  <div class="marquee" data-marquee aria-hidden="true">
+    <div class="marquee__track" data-marquee-track>
+      <span class="marquee__item">Manny Blom</span>
+    </div>
+  </div>
+
+  <div class="wrap legal">
+    <p class="legal__copy">© 2026 Manny Blom</p>
+    <p class="legal__place">Córdoba, Argentina<span class="legal__clock" data-clock></span></p>
+    <ul class="legal__links">
+      <li><a href="https://www.instagram.com/mannyblom/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.behance.net/mannyblom" target="_blank" rel="noopener">Behance</a></li>
+    </ul>
+    <button class="legal__pause" type="button" data-marquee-pause aria-pressed="false" hidden>Pausar el nombre</button>
+    <p class="legal__credit">Tipografía Archivo, de Omnibus-Type.</p>
+  </div>
+</footer>
+
+<script src="assets/vendor/gsap-3.15.1/gsap.min.js" defer></script>
+<script src="assets/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/gsap-3.15.1/SplitText.min.js" defer></script>
+<script src="assets/vendor/gsap-3.15.1/Observer.min.js" defer></script>
+<script src="assets/js/main.js" type="module"></script>
+</body>
+</html>

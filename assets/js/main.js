@@ -5,6 +5,8 @@ import { initClock } from './clock.js';
 import { initContact } from './contact.js';
 import { initAnchors } from './anchors.js';
 import { initHero } from './hero.js';
+import { initMotionHero } from './motion-hero.js';
+import { initTransition } from './transition.js';
 import { initFilms } from './films.js';
 import { initWorks } from './works.js';
 import { initStatement } from './statement.js';
@@ -20,6 +22,7 @@ const still = () => {
 };
 
 initNav(gsap);
+initTransition(gsap);
 initClock();
 initContact();
 initAnchors();
@@ -60,6 +63,7 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
       if (!motion) { ready(); return undefined; }
       const cleanups = [
         initHero({ gsap, SplitText, ScrollTrigger, fine }),
+        initMotionHero({ gsap, SplitText, ScrollTrigger, fine }),
         initStatement({ gsap, SplitText }),
         initMarquee({ gsap, Observer, ScrollTrigger }),
       ];
