@@ -9,7 +9,7 @@
 import { addResolver } from './targets.js';
 
 const SHRINK = 0.5; // cuánto se achica un contenedor lateral
-const HOLD = 0.16; // parte de cada tramo de scroll en la que el proyecto queda quieto
+const DIM = 0.85; // cuánto se apaga un contenedor lateral (queda al 15%)
 
 const play = (video) => {
   video.muted = true;
@@ -112,35 +112,35 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
   ScrollTrigger.addEventListener('refreshInit', measure);
 
   const fadeTo = items.map((item) => gsap.quickSetter(item.querySelector('.reel__meta'), 'opacity'));
-  // El paso entre proyectos no es lineal: arranca lento, acelera y frena (curva power3.inOut),
-  // con un tramo quieto en cada proyecto.
-  const curve = gsap.parseEase('power3.inOut');
-  const shape = (t) => {
-    const i = Math.min(n - 2, Math.floor(t));
-    const f = gsap.utils.clamp(0, 1, ((t - i) - HOLD) / (1 - 2 * HOLD));
-    return i + curve(f);
-  };
-  const render = (p) => {
-    const pos = n > 1 ? shape(p * (n - 1)) : 0;
+  // El scroll solo elige el proyecto; el paso de uno a otro es una animación propia en curva
+  // (power3.inOut), igual de suave scrolleando rápido o lento.
+  const draw = (pos) => {
     items.forEach((_, k) => {
-      gsap.set(items[k], { x: -pos * step }); // cada contenedor por separado: así el título puede quedar entre ellos
       const d = Math.min(1, Math.abs(k - pos));
-      gsap.set(medias[k], { scale: 1 - SHRINK * d, opacity: 1 - 0.6 * d });
+      gsap.set(items[k], { x: -pos * step }); // cada contenedor por separado: así el título puede quedar entre ellos
+      gsap.set(medias[k], { scale: 1 - SHRINK * d, opacity: 1 - DIM * d });
       fadeTo[k](Math.max(0, 1 - 1.6 * d));
     });
-    setActive(Math.round(pos));
+  };
+  const state = { pos: 0 };
+  let target = 0;
+  const goToIndex = (k, instant) => {
+    k = gsap.utils.clamp(0, n - 1, k);
+    if (k === target && !instant) return;
+    target = k;
+    setActive(k);
+    if (instant) { gsap.killTweensOf(state); state.pos = k; draw(k); return; }
+    gsap.to(state, { pos: k, duration: 1.05, ease: 'power3.inOut', overwrite: true, onUpdate: () => draw(state.pos) });
   };
 
   const st = ScrollTrigger.create({
     trigger: section,
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 1,
-    snap: n > 1 ? { snapTo: 1 / (n - 1), duration: { min: 0.25, max: 0.7 }, ease: 'power2.inOut', delay: 0.08 } : false,
-    onUpdate: (self) => render(self.progress),
-    onRefresh: (self) => render(self.progress),
+    onUpdate: (self) => goToIndex(Math.round(self.progress * (n - 1))),
+    onRefresh: (self) => { measure(); goToIndex(Math.round(self.progress * (n - 1)), true); },
   });
-  render(st.progress);
+  goToIndex(Math.round(st.progress * (n - 1)), true);
 
   const topOf = (k) => st.start + ((st.end - st.start) * k) / Math.max(1, n - 1);
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -159,6 +159,7 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
 
   cleanups.push(() => {
     st.kill();
+    gsap.killTweensOf(state);
     offResolver();
     ScrollTrigger.removeEventListener('refreshInit', measure);
     section.removeEventListener('reel:change', onChange);
