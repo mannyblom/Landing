@@ -1183,14 +1183,14 @@ html.is-wiping .wipe { transform: none; visibility: visible; }
   --line: rgb(222 218 211 / 0.16);
   --focus: var(--accent);
 
-  /* en negativo: las bandas que en Film son oscuras acá son claras */
-  --dark: #dedad3;
-  --dark-raise: #d3cec6;
-  --dark-ink: #0a0a0a;
-  --dark-muted: #5c5852;
-  --dark-rest: #696660;
-  --dark-line: rgb(10 10 10 / 0.14);
-  --accent-on-dark: #256f82;
+  /* todo negro: las bandas (proyectos, contacto) tampoco cambian de color */
+  --dark: #0a0a0a;
+  --dark-raise: #161615;
+  --dark-ink: #dedad3;
+  --dark-muted: #a8a39b;
+  --dark-rest: #77736c;
+  --dark-line: rgb(222 218 211 / 0.16);
+  --accent-on-dark: #6bb8cb;
 }
 .theme-motion ::selection { background: var(--ink); color: var(--bg); }
 
