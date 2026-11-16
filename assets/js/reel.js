@@ -8,7 +8,8 @@
    Los videos corren solo cuando su proyecto está activo. */
 import { addResolver } from './targets.js';
 
-const SHRINK = 0.42; // cuánto se achica un contenedor lateral
+const SHRINK = 0.5; // cuánto se achica un contenedor lateral
+const HOLD = 0.16; // parte de cada tramo de scroll en la que el proyecto queda quieto
 
 const play = (video) => {
   video.muted = true;
@@ -55,8 +56,8 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
     refit();
     ScrollTrigger.addEventListener('refreshInit', refit);
     items.forEach((item, k) => {
-      gsap.fromTo(medias[k], { scale: 0.8 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: item, start: 'top bottom', end: 'center center', scrub: true } });
-      gsap.fromTo(medias[k], { scale: 1 }, { scale: 0.8, ease: 'none', immediateRender: false, scrollTrigger: { trigger: item, start: 'center center', end: 'bottom top', scrub: true } });
+      gsap.fromTo(medias[k], { scale: 0.82 }, { scale: 1, ease: 'power3.out', scrollTrigger: { trigger: item, start: 'top bottom', end: 'center center', scrub: 0.8 } });
+      gsap.fromTo(medias[k], { scale: 1 }, { scale: 0.82, ease: 'power3.in', immediateRender: false, scrollTrigger: { trigger: item, start: 'center center', end: 'bottom top', scrub: 0.8 } });
       ScrollTrigger.create({
         trigger: item,
         start: 'top 55%',
@@ -111,10 +112,18 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
   ScrollTrigger.addEventListener('refreshInit', measure);
 
   const fadeTo = items.map((item) => gsap.quickSetter(item.querySelector('.reel__meta'), 'opacity'));
+  // El paso entre proyectos no es lineal: arranca lento, acelera y frena (curva power3.inOut),
+  // con un tramo quieto en cada proyecto.
+  const curve = gsap.parseEase('power3.inOut');
+  const shape = (t) => {
+    const i = Math.min(n - 2, Math.floor(t));
+    const f = gsap.utils.clamp(0, 1, ((t - i) - HOLD) / (1 - 2 * HOLD));
+    return i + curve(f);
+  };
   const render = (p) => {
-    const pos = p * (n - 1);
-    gsap.set(track, { x: -pos * step });
+    const pos = n > 1 ? shape(p * (n - 1)) : 0;
     items.forEach((_, k) => {
+      gsap.set(items[k], { x: -pos * step }); // cada contenedor por separado: así el título puede quedar entre ellos
       const d = Math.min(1, Math.abs(k - pos));
       gsap.set(medias[k], { scale: 1 - SHRINK * d, opacity: 1 - 0.6 * d });
       fadeTo[k](Math.max(0, 1 - 1.6 * d));
@@ -126,7 +135,7 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
     trigger: section,
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 0.7,
+    scrub: 1,
     snap: n > 1 ? { snapTo: 1 / (n - 1), duration: { min: 0.25, max: 0.7 }, ease: 'power2.inOut', delay: 0.08 } : false,
     onUpdate: (self) => render(self.progress),
     onRefresh: (self) => render(self.progress),
@@ -156,7 +165,7 @@ export function initReel({ gsap, ScrollTrigger, SplitText, pinned }) {
     links.forEach((link) => { link.removeEventListener('click', onClick); link.removeEventListener('focus', onFocus); });
     splits.forEach((sp) => sp.revert());
     layer.innerHTML = '';
-    gsap.set([track, ...medias, ...items.map((item) => item.querySelector('.reel__meta'))], { clearProps: 'all' });
+    gsap.set([track, ...items, ...medias, ...items.map((item) => item.querySelector('.reel__meta'))], { clearProps: 'all' });
     section.classList.remove('is-pinned');
     section.style.removeProperty('--n');
     items.forEach((item) => item.classList.remove('is-active'));
