@@ -22,6 +22,8 @@ index.html                 todo el contenido: textos, piezas, enlaces
 assets/css/site.css        el sistema visual (colores, tipografía, espacios) y cada sección
 assets/js/main.js          enciende el movimiento según pantalla y preferencias
 assets/js/hero.js          entrada del título y letras que responden al puntero
+assets/js/archive.js       sección Archivo: grilla por año y visor de cada trabajo
+assets/archivo/            fotos y clips de cada trabajo, para el visor del Archivo
 assets/js/films.js         sección Films: carrete horizontal fijo en escritorio, fila deslizable en teléfono
 motion.html                la página de motion design (/motion): la de Film en negativo
 assets/js/transition.js    la cortina al pasar de Film a Motion
@@ -56,6 +58,16 @@ Cada fila tiene el texto que se ve y su enlace:
 
 Los botones "Escribime" del menú y del inicio llevan a esta sección. Si cambiás el mail o el
 teléfono, actualizalos también en el bloque `application/ld+json` del `<head>`.
+
+### Archivo
+
+La sección Archivo (en `index.html`) muestra todos los trabajos por año. Cada uno tiene:
+
+- un cuadro `<li class="arch__item">` dentro de su año (con `data-arch="nombre-del-trabajo"`), y
+- su entrada en el bloque `<script type="application/json" id="archivo-data">`: título, tipo, año,
+  enlace y la lista de piezas (`src` de la foto, `w`/`h` en px y, si es un clip, `video`).
+
+Los archivos van en `assets/archivo/nombre-del-trabajo/` (fotos `.webp`, clips `.mp4` cortos y sin audio).
 
 ### Sumar un film
 

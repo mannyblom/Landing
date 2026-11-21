@@ -7,6 +7,7 @@ import { initAnchors } from './anchors.js';
 import { initHero } from './hero.js';
 import { initTransition } from './transition.js';
 import { initFilms } from './films.js';
+import { initArchive, initArchiveMotion } from './archive.js';
 import { initWorks } from './works.js';
 import { initStatement } from './statement.js';
 import { initMarquee } from './marquee.js';
@@ -24,6 +25,7 @@ initNav(gsap);
 initTransition(gsap);
 initClock();
 initContact();
+initArchive(gsap);
 initAnchors();
 
 if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
@@ -63,6 +65,7 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
       const cleanups = [
         initHero({ gsap, SplitText, ScrollTrigger, fine }),
         initStatement({ gsap, SplitText }),
+        initArchiveMotion({ gsap, ScrollTrigger, SplitText }),
         initMarquee({ gsap, Observer, ScrollTrigger }),
       ];
       return () => cleanups.forEach((fn) => typeof fn === 'function' && fn());

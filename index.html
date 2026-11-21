@@ -34,6 +34,7 @@
 <link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
 <link rel="modulepreload" href="assets/js/films.js">
+<link rel="modulepreload" href="assets/js/archive.js">
 <link rel="modulepreload" href="assets/js/transition.js">
 <link rel="modulepreload" href="assets/js/statement.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
@@ -77,6 +78,7 @@
     </nav>
     <nav class="nav__links" aria-label="Secciones">
       <a href="#films" data-spy="films">Films</a>
+      <a href="#archivo" data-spy="archivo">Archivo</a>
       <a href="#sobre-mi" data-spy="sobre-mi">Sobre mí</a>
       <a href="#servicios" data-spy="servicios">Servicios</a>
     </nav>
@@ -92,6 +94,7 @@
   <div class="wrap sheet__in">
     <nav class="sheet__links" aria-label="Menú">
       <a href="#films">Films</a>
+      <a href="#archivo">Archivo</a>
       <a href="#sobre-mi">Sobre mí</a>
       <a href="#servicios">Servicios</a>
     </nav>
@@ -326,7 +329,136 @@
     </div>
   </section>
 
-  <!-- 3. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
+  <!-- 3. ARCHIVO: todos los trabajos por año, en grilla. Cada uno abre un visor con todas sus piezas
+       (fotos y clips de assets/archivo/<trabajo>/). Sin JavaScript, cada cuadro va a su publicación.
+       Para sumar un trabajo: un <li class="arch__item"> en su año y su entrada en el JSON "archivo-data". -->
+  <section class="arch" id="archivo" aria-labelledby="arch-h">
+    <div class="wrap">
+      <div class="arch__head">
+        <h2 id="arch-h">Archivo</h2>
+        <p class="arch__total">12 trabajos · 2023–2026</p>
+      </div>
+      <div class="arch__year">
+        <h3 class="arch__y">2026</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DXIK0MlCf7O/" target="_blank" rel="noopener" data-arch="erre-aw26">
+              <span class="arch__media"><img src="assets/films/erre-aw26-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/erre-aw26.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Erre Jeans</span>
+              <span class="arch__kind">Fashion film · AW26 · 6 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DWzYbK3jRAm/" target="_blank" rel="noopener" data-arch="maycla-aw26">
+              <span class="arch__media"><img src="assets/films/maycla-aw26-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/maycla-aw26.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Maycla</span>
+              <span class="arch__kind">Fashion film · AW26 · 6 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="arch__year">
+        <h3 class="arch__y">2025</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/reel/DRLLaEejSiX/" target="_blank" rel="noopener" data-arch="banado-la-estrella">
+              <span class="arch__media"><img src="assets/films/banado-la-estrella-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/banado-la-estrella.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Bañado La Estrella</span>
+              <span class="arch__kind">Registro personal · Formosa · 1 pieza</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DRAwSy0DRnZ/" target="_blank" rel="noopener" data-arch="level-six-aw25">
+              <span class="arch__media"><img src="assets/films/level-six-aw25-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/level-six-aw25.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Level Six</span>
+              <span class="arch__kind">Fashion film · AW25 · 8 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DLTc9iQx9fd/" target="_blank" rel="noopener" data-arch="level-six-latido-sur">
+              <span class="arch__media"><img src="assets/films/level-six-latido-sur-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/level-six-latido-sur.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Level Six</span>
+              <span class="arch__kind">Latido sur · 8 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DE3eR9nRvaZ/" target="_blank" rel="noopener" data-arch="yazuka-yzk24">
+              <span class="arch__media"><img src="assets/films/yazuka-yzk24-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/yazuka-yzk24.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Yazuka</span>
+              <span class="arch__kind">Film de campaña · YZK24 · 8 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DEVuaRgxj3K/" target="_blank" rel="noopener" data-arch="abstracta-ss25">
+              <span class="arch__media"><img src="assets/films/abstracta-ss25-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/abstracta-ss25.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Abstracta</span>
+              <span class="arch__kind">Un amor de verano eterno · SS25 · 7 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="arch__year">
+        <h3 class="arch__y">2024</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/DBMRnXox9RN/" target="_blank" rel="noopener" data-arch="dolores-reynal-2024">
+              <span class="arch__media"><img src="assets/films/dolores-reynal-2024-380.jpg" loading="lazy" decoding="async" alt=""></span>
+              <span class="arch__title">Dolores Reynal</span>
+              <span class="arch__kind">Fashion film · La Cumbre · 7 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/C_eJJ3lRWxk/" target="_blank" rel="noopener" data-arch="denim-studio">
+              <span class="arch__media"><img src="assets/films/denim-studio-380.jpg" loading="lazy" decoding="async" alt=""></span>
+              <span class="arch__title">Denim Studio</span>
+              <span class="arch__kind">Film y edición · Tejano Stores · 8 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/C9dfBktRSIg/" target="_blank" rel="noopener" data-arch="hielo-y-aventura">
+              <span class="arch__media"><img src="assets/films/hielo-y-aventura-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/hielo-y-aventura.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Hielo y Aventura</span>
+              <span class="arch__kind">Con Outdoor Partners · El Calafate · 8 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/p/C6KW3wyR9rB/" target="_blank" rel="noopener" data-arch="clan-ss24">
+              <span class="arch__media"><img src="assets/films/clan-ss24-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/clan-ss24.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Clan</span>
+              <span class="arch__kind">Essence · SS24 · 7 piezas</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="arch__year">
+        <h3 class="arch__y">2023</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.instagram.com/reel/CryaOJcA-w2/" target="_blank" rel="noopener" data-arch="clan-oi23">
+              <span class="arch__media"><img src="assets/films/clan-oi23-poster.jpg" loading="lazy" decoding="async" alt=""><video muted loop playsinline preload="none" data-src="assets/films/clan-oi23.mp4" aria-hidden="true" tabindex="-1"></video></span>
+              <span class="arch__title">Clan</span>
+              <span class="arch__kind">The Future Is Now · OT/INV 23 · 1 pieza</span>
+              <span class="sr-only">(ver el trabajo completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script type="application/json" id="archivo-data">{"erre-aw26": {"title": "Erre Jeans", "kind": "Fashion film · AW26", "year": 2026, "href": "https://www.instagram.com/p/DXIK0MlCf7O/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}]}, "maycla-aw26": {"title": "Maycla", "kind": "Fashion film · AW26", "year": 2026, "href": "https://www.instagram.com/p/DWzYbK3jRAm/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}]}, "banado-la-estrella": {"title": "Bañado La Estrella", "kind": "Registro personal · Formosa", "year": 2025, "href": "https://www.instagram.com/reel/DRLLaEejSiX/", "items": [{"src": "01.webp", "w": 640, "h": 336, "video": "01.mp4"}]}, "level-six-aw25": {"title": "Level Six", "kind": "Fashion film · AW25", "year": 2025, "href": "https://www.instagram.com/p/DRAwSy0DRnZ/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 1080, "h": 1350}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "level-six-latido-sur": {"title": "Level Six", "kind": "Latido sur", "year": 2025, "href": "https://www.instagram.com/p/DLTc9iQx9fd/", "items": [{"src": "01.webp", "w": 720, "h": 959, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 959, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 959, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1438}, {"src": "05.webp", "w": 1080, "h": 1438}, {"src": "06.webp", "w": 720, "h": 959, "video": "06.mp4"}, {"src": "07.webp", "w": 1080, "h": 1438}, {"src": "08.webp", "w": 720, "h": 959, "video": "08.mp4"}]}, "yazuka-yzk24": {"title": "Yazuka", "kind": "Film de campaña · YZK24", "year": 2025, "href": "https://www.instagram.com/p/DE3eR9nRvaZ/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "abstracta-ss25": {"title": "Abstracta", "kind": "Un amor de verano eterno · SS25", "year": 2025, "href": "https://www.instagram.com/p/DEVuaRgxj3K/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}, {"src": "07.webp", "w": 1080, "h": 1350}]}, "dolores-reynal-2024": {"title": "Dolores Reynal", "kind": "Fashion film · La Cumbre", "year": 2024, "href": "https://www.instagram.com/p/DBMRnXox9RN/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 720, "h": 900, "video": "07.mp4"}]}, "denim-studio": {"title": "Denim Studio", "kind": "Film y edición · Tejano Stores", "year": 2024, "href": "https://www.instagram.com/p/C_eJJ3lRWxk/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 720, "h": 900, "video": "08.mp4"}]}, "hielo-y-aventura": {"title": "Hielo y Aventura", "kind": "Con Outdoor Partners · El Calafate", "year": 2024, "href": "https://www.instagram.com/p/C9dfBktRSIg/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}, {"src": "07.webp", "w": 720, "h": 900, "video": "07.mp4"}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "clan-ss24": {"title": "Clan", "kind": "Essence · SS24", "year": 2024, "href": "https://www.instagram.com/p/C6KW3wyR9rB/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 899, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 720, "h": 899, "video": "07.mp4"}]}, "clan-oi23": {"title": "Clan", "kind": "The Future Is Now · OT/INV 23", "year": 2023, "href": "https://www.instagram.com/reel/CryaOJcA-w2/", "items": [{"src": "01.webp", "w": 720, "h": 1280, "video": "01.mp4"}]}}</script>
+  </section>
+
+  <!-- 4. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
   <section class="about" id="sobre-mi" aria-labelledby="about-h">
     <div class="wrap">
       <h2 class="sr-only" id="about-h">Sobre mí</h2>
@@ -414,6 +546,27 @@
     <p class="legal__credit">Tipografía Archivo, de Omnibus-Type.</p>
   </div>
 </footer>
+
+<!-- Visor del archivo: se llena con el trabajo elegido. -->
+<dialog class="viewer" aria-labelledby="viewer-title" data-viewer>
+  <div class="viewer__in">
+    <div class="wrap viewer__bar">
+      <p class="viewer__meta"><span data-v-year></span><span data-v-kind></span></p>
+      <h2 class="viewer__title" id="viewer-title" data-v-title></h2>
+      <button class="viewer__close" type="button" data-v-close>Cerrar<svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2.5 2.5 7 7m0-7-7 7"/></svg></button>
+    </div>
+    <div class="viewer__stage" data-v-stage tabindex="-1"></div>
+    <div class="wrap viewer__foot">
+      <div class="viewer__nav">
+        <button type="button" class="viewer__arrow" data-v-prev aria-label="Pieza anterior"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M10.5 6H2M5.5 2.5 2 6l3.5 3.5"/></svg></button>
+        <p class="viewer__count" data-v-count aria-live="polite"></p>
+        <button type="button" class="viewer__arrow" data-v-next aria-label="Pieza siguiente"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></button>
+      </div>
+      <a class="viewer__link" data-v-link href="#" target="_blank" rel="noopener">Ver en Instagram<svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+      <button type="button" class="viewer__next-work" data-v-next-work>Siguiente trabajo<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/vendor/gsap-3.15.1/gsap.min.js" defer></script>
 <script src="assets/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>
