@@ -61,6 +61,14 @@ export function initArchive(gsap) {
 
   const updateCount = () => { count.textContent = `${index + 1} / ${slides.length}`; };
 
+  // Cada trabajo se ve siempre desde su primera pieza. El salto es instantáneo: corta cualquier
+  // desplazamiento suave que haya quedado en curso.
+  const toStart = () => {
+    stage.scrollTo({ left: 0, behavior: 'instant' });
+    index = 0;
+    updateCount();
+  };
+
   const fill = (slug) => {
     const work = data[slug];
     current = slug;
@@ -97,9 +105,7 @@ export function initArchive(gsap) {
       stage.appendChild(fig);
       return fig;
     });
-    index = 0;
-    stage.scrollLeft = 0;
-    updateCount();
+    toStart();
 
     // Cada clip corre solo mientras su pieza se ve en el visor.
     observer = new IntersectionObserver((entries) => {
@@ -143,6 +149,7 @@ export function initArchive(gsap) {
     fill(slug);
     dialog.showModal();
     root.classList.add('viewer-open');
+    toStart(); // recién ahora el visor tiene medidas: antes de abrirse, el navegador ignora el scroll
     if (animate() && tile) {
       const r = mediaOf(tile).getBoundingClientRect();
       gsap.fromTo(dialog, { clipPath: inset(r) }, { clipPath: 'inset(0px 0px 0px 0px round 0px)', duration: 0.8, ease: 'expo.inOut', clearProps: 'clipPath' });
@@ -156,6 +163,7 @@ export function initArchive(gsap) {
     const finish = () => {
       if (observer) observer.disconnect();
       stage.querySelectorAll('video').forEach((v) => v.pause());
+      toStart();
       dialog.close();
       root.classList.remove('viewer-open');
       if (from) from.focus({ preventScroll: true });
