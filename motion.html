@@ -34,6 +34,7 @@
 <link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
 <link rel="modulepreload" href="assets/js/archive.js">
+<link rel="modulepreload" href="assets/js/showreel.js">
 <link rel="modulepreload" href="assets/js/transition.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
 <script>
@@ -120,6 +121,15 @@
           <div class="facts__row"><dt>Disponibilidad</dt><dd>Freelance y full-time</dd></div>
         </dl>
       </div>
+    </div>
+  </section>
+
+  <!-- VIDEO: reel de borde a borde entre el inicio y el Archivo. Para cambiarlo, reemplazá src y poster
+       (hoy usa el mismo video de prueba que Film). -->
+  <section class="showreel" aria-label="Video" data-showreel>
+    <div class="showreel__frame">
+      <video class="showreel__video" src="assets/video/showreel.mp4" poster="assets/video/showreel-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="Reel de motion design (video de prueba)"></video>
+      <button class="showreel__toggle" type="button" data-showreel-toggle aria-pressed="false" hidden>Pausar</button>
     </div>
   </section>
 

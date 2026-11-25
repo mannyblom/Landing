@@ -66,6 +66,11 @@ Entre el inicio y el Archivo hay un video horizontal de borde a borde. Para camb
 o cambiá `src` y `poster` en la sección `showreel` de `index.html`. Conviene H.264, sin audio y de menos
 de 8 MB. Corre solo mientras se ve y tiene botón Pausar.
 
+La página de Motion tiene su propia sección igual, entre el inicio y el Archivo, pensada para un
+reel de motion. Hoy usa el mismo video de prueba: para cambiarlo, subí el reel (por ejemplo
+`assets/video/reel-motion.mp4` y su póster) y cambiá `src` y `poster` en la sección `showreel` de
+`motion.html`.
+
 ### Archivo
 
 La sección Archivo (en `index.html`) muestra todos los trabajos por año. Cada uno tiene:
