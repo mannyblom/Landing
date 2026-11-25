@@ -1121,8 +1121,7 @@ html.js:not(.is-ready) [data-rise] { opacity: 0; }
 .showreel__frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 1280 / 676;
-  max-height: 100svh;
+  aspect-ratio: 2.35 / 1; /* cine panorámico */
   overflow: hidden;
   background: #0a0a0a;
 }
@@ -1155,6 +1154,7 @@ html.js:not(.is-ready) [data-rise] { opacity: 0; }
   .showreel__toggle:hover { background: #2a2a28; transform: translateY(-1px); }
 }
 @media (max-width: 639px) {
+  .showreel__frame { aspect-ratio: 1.9 / 1; } /* en el teléfono, apenas más alto para que se vea */
   .showreel__toggle { bottom: 12px; min-height: 40px; padding: 0 14px; font-size: 13px; }
 }
 

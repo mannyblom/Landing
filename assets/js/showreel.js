@@ -1,6 +1,6 @@
 /* Video horizontal de borde a borde.
-   - Reproducción: corre solo mientras se ve; tiene botón Pausar / Reproducir. Con "reducir
-     movimiento" no arranca solo (queda el póster y el botón). Sin JavaScript, controles del navegador.
+   - Reproducción: arranca solo y en loop (también sin JavaScript, por el atributo autoplay); se
+     pausa cuando sale de pantalla para no gastar batería, y tiene botón Pausar / Reproducir.
    - Animación: al acercarse, el cuadro arranca dentro de los márgenes de la página, con esquinas
      redondeadas, y se abre hasta ocupar todo el ancho; el video se acomoda de un leve zoom. */
 
@@ -9,11 +9,9 @@ export function initShowreelPlayback() {
   const video = section && section.querySelector('video');
   const toggle = section && section.querySelector('[data-showreel-toggle]');
   if (!video || !toggle) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let userPaused = reduce.matches;
-  let inView = false;
+  let userPaused = false;
+  let inView = true;
 
-  video.controls = false;
   toggle.hidden = false;
   const label = () => {
     toggle.textContent = userPaused ? 'Reproducir' : 'Pausar';
