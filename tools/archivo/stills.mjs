@@ -96,8 +96,8 @@ for (const e of cfg) {
     fs.rmSync(`${dir}/tmp`, { recursive: true, force: true });
     console.log(e.slug, 'grilla 3 × 3'); continue;
   }
-  const vert = await candidates(files(e.src), `${dir}/tmp`, 'v');
-  const hor = e.h ? await candidates(files(e.h), `${dir}/tmp`, 'h', 16) : [];
+  const vert = await candidates(files(e.src), `${dir}/tmp`, 'v', 10, !!e.conTexto); // conTexto: true acepta tomas con texto
+  const hor = e.h ? await candidates(files(e.h), `${dir}/tmp`, 'h', 16, !!e.conTexto) : [];
   // skip: posiciones de fotogramas a saltear tras revisarlos (ej. [0] = el primero elegido).
   const skip = e.skip || [], change = e.change || [], bands = e.bands || [];
   const pool = take(vert, 3 + skip.length + change.length);

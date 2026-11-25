@@ -50,7 +50,14 @@ async function pick(file, k, tmp, bg) {
 }
 // Reparte las n piezas entre las fuentes: [índice del inventario, regex del nombre, cantidad opcional].
 function plan(e) {
-  const groups = e.src.map(([j, re, q]) => ({ files: inv[j].finals.filter((p) => new RegExp(re).test(path.basename(p))), q }));
+  // Regla por carpeta: si hay exports horizontales, se usan solo esos; si son todos verticales, esos.
+  // ("vertical": true en la entrada desactiva la regla.)
+  const horiz = (p) => { const v = meta(p); return v.w > v.h * 1.1; };
+  const groups = e.src.map(([j, re, q]) => {
+    let files = inv[j].finals.filter((p) => new RegExp(re).test(path.basename(p)));
+    if (!e.vertical && files.some(horiz)) files = files.filter(horiz);
+    return { files, q };
+  });
   const free = groups.filter((g) => !g.q); const left = e.n - groups.reduce((a, g) => a + (g.q || 0), 0);
   free.forEach((g, i) => { g.q = Math.floor(left / free.length) + (i < left % free.length ? 1 : 0); });
   const jobs = [];
