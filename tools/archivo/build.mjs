@@ -11,7 +11,7 @@ const FF = createRequire(import.meta.url)('ffmpeg-static');
 const [WORK, only] = process.argv.slice(2);
 const inv = JSON.parse(fs.readFileSync(`${WORK}/inventory.json`));
 const cfg = JSON.parse(fs.readFileSync(`${WORK}/config.json`));
-const OUT = `${WORK}/out`; const CLIP = 4;
+const OUT = `${WORK}/out`; let CLIP = 4; // "clip": 8 en la entrada cambia el largo
 const run = (args) => new Promise((res) => { const p = spawn(FF, args); let err = ''; p.stderr.on('data', (d) => { err += d; }); p.on('close', (c) => res({ c, err })); });
 const meta = (file) => inv.flatMap((j) => j.videos).find((v) => v.path === file);
 
@@ -69,6 +69,7 @@ function plan(e) {
 }
 for (const e of cfg) {
   if (only && !only.split(',').includes(e.slug)) continue;
+  CLIP = e.clip || 4;
   const dir = `${OUT}/${e.slug}`; fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(`${dir}/tmp`, { recursive: true });
   const items = []; let n = 0;
   for (const [file, k] of plan(e)) {

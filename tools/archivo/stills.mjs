@@ -63,6 +63,7 @@ for (const e of cfg) {
   // Lo que ya está publicado no se repite.
   const used = [];
   const pub = path.join(SITE, 'assets/archivo', e.slug);
+  if (!fs.existsSync(pub)) { console.log(e.slug, 'no está en la web: se saltea'); continue; }
   // Las imágenes fijas anteriores (f01.webp...) no cuentan: se están rehaciendo.
   for (const f of fs.readdirSync(pub).filter((f) => f.endsWith('.webp') && !/^f\d\d\.webp$/.test(f))) used.push(await sig(path.join(pub, f)));
   const fresh = (c) => used.every((g) => dist(g, c.g) > 14);
