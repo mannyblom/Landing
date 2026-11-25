@@ -93,17 +93,16 @@ primer cuadro del loop. Los videos corren solo cuando su cuadro está en pantall
 
 ### Página de motion (/motion)
 
-Es la misma página que Film, en negativo. Sus proyectos usan el mismo carrete: cada uno es un
-`<li class="film film--work">` en `motion.html`. Para un video, agregá
-`<video muted loop playsinline preload="none" src="…mp4"></video>` después de la imagen (la imagen
-queda como póster); un gif va directo como `<img src="….gif">`.
+Es la misma página que Film, en negativo. Sus proyectos están en una sección Archivo igual a la de
+Film: una grilla por año y, al elegir uno, el mismo visor. Para sumar o cambiar un proyecto, en
+`motion.html`:
 
-Al hacer clic en un proyecto se abre el mismo visor del Archivo de Film. Lo que muestra está en el
-bloque `<script type="application/json" id="archivo-data">` de `motion.html` (una entrada por
-proyecto, con el mismo nombre que su `data-arch`), y los archivos van en
-`assets/archivo/nombre-del-proyecto/`: `01.webp`, `02.webp`… con su `w`/`h` en px, y para un clip,
-`"video": "02.mp4"` junto a su foto. Hoy cada proyecto tiene una sola pieza (su portada); el año
-va en `"year"` y, si queda vacío, no se muestra.
+- un `<li class="arch__item">` dentro de su año (con `data-arch="nombre-del-proyecto"`), y
+- su entrada en el bloque `<script type="application/json" id="archivo-data">`, con el mismo nombre.
+
+Las piezas del visor van en `assets/archivo/nombre-del-proyecto/` (`01.webp`, `02.webp`… con su
+`w`/`h` en px; un clip suma `"video": "02.mp4"` junto a su foto). Hoy cada proyecto tiene una sola
+pieza, su portada.
 
 ### Sumar un proyecto de motion (sección vieja, hoy sin uso)
 

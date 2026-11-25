@@ -33,7 +33,6 @@
 <link rel="modulepreload" href="assets/js/targets.js">
 <link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
-<link rel="modulepreload" href="assets/js/films.js">
 <link rel="modulepreload" href="assets/js/archive.js">
 <link rel="modulepreload" href="assets/js/transition.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
@@ -76,7 +75,7 @@
       <a class="switch__opt" href="/motion" aria-current="page">Motion</a>
     </nav>
     <nav class="nav__links" aria-label="Secciones">
-      <a href="#films" data-spy="films">Proyectos</a>
+      <a href="#archivo" data-spy="archivo">Archivo</a>
     </nav>
     <a class="btn btn--primary nav__cta" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
@@ -89,7 +88,7 @@
 <div class="sheet" id="menu" data-menu hidden>
   <div class="wrap sheet__in">
     <nav class="sheet__links" aria-label="Menú">
-      <a href="#films">Proyectos</a>
+      <a href="#archivo">Archivo</a>
     </nav>
     <a class="btn btn--primary sheet__cta" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
   </div>
@@ -113,7 +112,7 @@
           <p class="lead">Animación de producto, motion graphics e identidad gráfica para marcas y eventos.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#contacto">Escribime<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></a>
-            <a class="btn btn--text" href="#films">Ver proyectos</a>
+            <a class="btn btn--text" href="#archivo">Ver proyectos</a>
           </div>
         </div>
         <dl class="facts" data-rise>
@@ -124,99 +123,63 @@
     </div>
   </section>
 
-  <!-- 2. PROYECTOS: el mismo carrete que Films (assets/js/films.js), con los trabajos de motion. -->
-  <section class="films" id="films" aria-labelledby="films-h" data-films>
-    <div class="films__stage">
-      <div class="wrap films__head">
-        <div class="films__intro">
-          <h2 id="films-h">Proyectos</h2>
-          <p class="lead">Elegí uno para verlo en detalle.</p>
-        </div>
-        <div class="films__meta">
-          <button class="films__pause" type="button" data-films-pause aria-pressed="false" hidden>Pausar videos</button>
-          <p class="films__count" aria-hidden="true"><span class="films__current" data-films-current></span><span class="films__total" data-films-total></span></p>
-          <span class="films__bar" aria-hidden="true"><span class="films__bar-fill" data-films-bar></span></span>
-        </div>
+  <!-- 2. ARCHIVO: los proyectos de motion por año, en la misma grilla y el mismo visor que Film.
+       Cada uno: un <li class="arch__item"> en su año y su entrada en el JSON "archivo-data";
+       sus piezas van en assets/archivo/<proyecto>/. Sin JavaScript, cada cuadro va a Behance. -->
+  <section class="arch" id="archivo" aria-labelledby="arch-h">
+    <div class="wrap">
+      <div class="arch__head">
+        <h2 id="arch-h">Archivo</h2>
+        <p class="arch__total">4 proyectos · 2022–2023</p>
       </div>
-
-      <ol class="films__track" data-films-track>
-        <li class="film film--work" id="motion-livingtree">
-          <a class="film__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener" draggable="false" data-arch="livingtree">
-            <span class="film__media">
-              <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
-              <picture>
-                <source type="image/avif" srcset="assets/work/livingtree-404.avif 404w, assets/work/livingtree-808.avif 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <source type="image/webp" srcset="assets/work/livingtree-404.webp 404w, assets/work/livingtree-808.webp 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <img src="assets/work/livingtree-808.jpg" width="808" height="632" loading="lazy" decoding="async" draggable="false" alt="Envases de Colágeno Ortomolecular de LivingTree sobre fondo negro y verde.">
-              </picture>
-            </span>
-            <span class="film__num" aria-hidden="true">01</span>
-            <span class="film__title">LivingTree</span>
-            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-            <span class="film__kind">Animación de producto</span>
-            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
-          </a>
-        </li>
-        <li class="film film--work" id="motion-healthy-baby">
-          <a class="film__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener" draggable="false" data-arch="healthy-baby">
-            <span class="film__media">
-              <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
-              <picture>
-                <source type="image/avif" srcset="assets/work/healthy-baby-404.avif 404w, assets/work/healthy-baby-808.avif 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <source type="image/webp" srcset="assets/work/healthy-baby-404.webp 404w, assets/work/healthy-baby-808.webp 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <img src="assets/work/healthy-baby-808.jpg" width="808" height="632" loading="lazy" decoding="async" draggable="false" alt="Un pañal de Healthy Baby sobre fondo celeste con el sello EWG Verified.">
-              </picture>
-            </span>
-            <span class="film__num" aria-hidden="true">02</span>
-            <span class="film__title">Healthy Baby</span>
-            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-            <span class="film__kind">Animación de producto · 2022</span>
-            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
-          </a>
-        </li>
-        <li class="film film--work" id="motion-fieles">
-          <a class="film__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener" draggable="false" data-arch="fieles">
-            <span class="film__media">
-              <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
-              <picture>
-                <source type="image/avif" srcset="assets/work/fieles-404.avif 404w, assets/work/fieles-808.avif 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <source type="image/webp" srcset="assets/work/fieles-404.webp 404w, assets/work/fieles-808.webp 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <img src="assets/work/fieles-808.jpg" width="808" height="632" loading="lazy" decoding="async" draggable="false" alt="Placas de oradores del congreso FIELES en violeta, verde y naranja.">
-              </picture>
-            </span>
-            <span class="film__num" aria-hidden="true">03</span>
-            <span class="film__title">FIELES</span>
-            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-            <span class="film__kind">Identidad gráfica · 2023</span>
-            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
-          </a>
-        </li>
-        <li class="film film--work" id="motion-naranja-x">
-          <a class="film__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener" draggable="false" data-arch="naranja-x">
-            <span class="film__media">
-              <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
-              <picture>
-                <source type="image/avif" srcset="assets/work/naranja-x-404.avif 404w, assets/work/naranja-x-808.avif 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <source type="image/webp" srcset="assets/work/naranja-x-404.webp 404w, assets/work/naranja-x-808.webp 808w" sizes="(min-width: 1024px) 60vw, 86vw">
-                <img src="assets/work/naranja-x-808.jpg" width="808" height="632" loading="lazy" decoding="async" draggable="false" alt="Cuadros del proyecto Naranja X: el logo NX en una pared y detalles en naranja y violeta.">
-              </picture>
-            </span>
-            <span class="film__num" aria-hidden="true">04</span>
-            <span class="film__title">Naranja X</span>
-            <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
-            <span class="film__kind">Film y edición</span>
-            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
-          </a>
-        </li>
-      </ol>
-      <!-- Lo que muestra el visor de cada proyecto: sus piezas van en assets/archivo/<proyecto>/
-           (fotos .webp con su ancho y alto en px; un clip suma "video": "02.mp4"). -->
+      <div class="arch__year">
+        <h3 class="arch__y">2023</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener" data-arch="livingtree">
+              <span class="arch__media"><img src="assets/work/livingtree-808.webp" width="808" height="632" loading="lazy" decoding="async" alt="Envases de Colágeno Ortomolecular de LivingTree sobre fondo negro y verde."></span>
+              <span class="arch__title">LivingTree</span>
+              <span class="arch__kind">Animación de producto · 1 pieza</span>
+              <span class="sr-only">(ver el proyecto completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener" data-arch="naranja-x">
+              <span class="arch__media"><img src="assets/work/naranja-x-808.webp" width="808" height="632" loading="lazy" decoding="async" alt="Cuadros del proyecto Naranja X: el logo NX en una pared y detalles en naranja y violeta."></span>
+              <span class="arch__title">Naranja X</span>
+              <span class="arch__kind">Film y edición · 1 pieza</span>
+              <span class="sr-only">(ver el proyecto completo)</span>
+            </a>
+          </li>
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener" data-arch="fieles">
+              <span class="arch__media"><img src="assets/work/fieles-808.webp" width="808" height="632" loading="lazy" decoding="async" alt="Placas de oradores del congreso FIELES en violeta, verde y naranja."></span>
+              <span class="arch__title">FIELES</span>
+              <span class="arch__kind">Identidad gráfica · 1 pieza</span>
+              <span class="sr-only">(ver el proyecto completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="arch__year">
+        <h3 class="arch__y">2022</h3>
+        <ul class="arch__grid">
+          <li class="arch__item">
+            <a class="arch__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener" data-arch="healthy-baby">
+              <span class="arch__media"><img src="assets/work/healthy-baby-808.webp" width="808" height="632" loading="lazy" decoding="async" alt="Un pañal de Healthy Baby sobre fondo celeste con el sello EWG Verified."></span>
+              <span class="arch__title">Healthy Baby</span>
+              <span class="arch__kind">Animación de producto · 1 pieza</span>
+              <span class="sr-only">(ver el proyecto completo)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
       <script type="application/json" id="archivo-data">
 {
   "livingtree": {
     "title": "LivingTree",
     "kind": "Animación de producto",
-    "year": "",
+    "year": "2023",
     "href": "https://www.behance.net/gallery/188052891/LivingTree-Motion-Design",
     "items": [
       {
@@ -226,11 +189,11 @@
       }
     ]
   },
-  "healthy-baby": {
-    "title": "Healthy Baby",
-    "kind": "Animación de producto",
-    "year": "2022",
-    "href": "https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design",
+  "naranja-x": {
+    "title": "Naranja X",
+    "kind": "Film y edición",
+    "year": "2023",
+    "href": "https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition",
     "items": [
       {
         "src": "01.webp",
@@ -252,11 +215,11 @@
       }
     ]
   },
-  "naranja-x": {
-    "title": "Naranja X",
-    "kind": "Film y edición",
-    "year": "",
-    "href": "https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition",
+  "healthy-baby": {
+    "title": "Healthy Baby",
+    "kind": "Animación de producto",
+    "year": "2022",
+    "href": "https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design",
     "items": [
       {
         "src": "01.webp",
@@ -267,7 +230,6 @@
   }
 }
       </script>
-      <span class="cursor-label" data-films-cursor aria-hidden="true">Ver proyecto<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
     </div>
   </section>
 
