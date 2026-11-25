@@ -19,6 +19,14 @@ for spec in args[1:]:
     data[slug]['items'] = out
     # Si se fue la pieza 1, el cuadro de la grilla pasa a usar la nueva primera.
     first = out[0]
+    def retile(mm):
+        block = mm.group(0)
+        block = re.sub(r'(<img src=")assets/archivo/' + re.escape(slug) + r'/[^"]+', lambda x: x.group(1) + f'assets/archivo/{slug}/{first["src"]}', block, count=1)
+        if first.get('video'):
+            block = re.sub(r'(data-src=")assets/archivo/' + re.escape(slug) + r'/[^"]+', lambda x: x.group(1) + f'assets/archivo/{slug}/{first["video"]}', block, count=1)
+            block = re.sub(r'(href=")assets/archivo/' + re.escape(slug) + r'/[^"]+', lambda x: x.group(1) + f'assets/archivo/{slug}/{first["video"]}', block, count=1)
+        return block
+    s = re.sub(r'<a class="arch__link"[^>]*data-arch="' + re.escape(slug) + r'">.*?</a>', retile, s, count=1, flags=re.S)
     s = re.sub(r'(data-arch="' + re.escape(slug) + r'">.*?<span class="arch__kind">[^<]*?· )\d+ piezas?', lambda x: f'{x.group(1)}{len(out)} piezas', s, count=1, flags=re.S)
     print(slug, f'quedan {len(out)} piezas')
 for slug in todo:
