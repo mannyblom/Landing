@@ -8,6 +8,7 @@
 //   bands = franjas del collage a reemplazar (0 arriba); bandPos = {"1": 0.6} centro vertical de una franja
 import { spawn } from 'node:child_process';
 import fs from 'node:fs'; import path from 'node:path'; import sharp from 'sharp';
+sharp.cache(false); // los temporales se reutilizan con el mismo nombre: sin caché, cada lectura es la real
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import { textiness } from './textiness.mjs';

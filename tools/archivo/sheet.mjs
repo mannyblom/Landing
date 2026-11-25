@@ -9,7 +9,7 @@ for (const slug of slugs) {
   let x = 0;
   for (const [n, it] of items.entries()) {
     const b = await sharp(`${dir}/${it.src}`).resize({ height: H }).toBuffer(); const m = await sharp(b).metadata();
-    if (x + m.width > W) break;
+    if (x + m.width > W) { x = 0; y += H + 6; } // no entra: sigue en otra fila
     comps.push({ input: b, top: y, left: x }, { input: Buffer.from(`<svg width="40" height="24"><rect width="40" height="24" fill="#000a"/><text x="6" y="17" font-family="Helvetica" font-size="15" fill="#fff">${String(n + 1).padStart(2, '0')}</text></svg>`), top: y, left: x });
     x += m.width + 6;
   }

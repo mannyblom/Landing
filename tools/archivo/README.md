@@ -39,6 +39,9 @@ npx playwright install chromium webkit   # solo para check.mjs
 
 ## Criterios
 
+- Por carpeta: si una carpeta tiene exports horizontales y verticales, se usan solo los horizontales; si
+  solo tiene verticales, se usan esos. De cada pieza se usa la
+  última versión (v01, v02…); `strips.py` la elige sola.
 - Nombre y año salen de la carpeta. Los trabajos sin publicación van con `"href": ""` (el visor no
   muestra el enlace).
 - Afuera: entrevistas y testimonios, tomas de ecommerce, capacitaciones largas, y material de

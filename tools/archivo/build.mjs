@@ -5,6 +5,7 @@
 // Uso: node build.mjs <trabajo> [slug,slug...]   (lee <trabajo>/config.json, escribe <trabajo>/out/<slug>/)
 import { spawn } from 'node:child_process';
 import fs from 'node:fs'; import path from 'node:path'; import sharp from 'sharp';
+sharp.cache(false); // los temporales se reutilizan con el mismo nombre: sin caché, cada lectura es la real
 import { createRequire } from 'node:module';
 const FF = createRequire(import.meta.url)('ffmpeg-static');
 const [WORK, only] = process.argv.slice(2);
