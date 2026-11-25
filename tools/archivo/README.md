@@ -33,6 +33,8 @@ npx playwright install chromium webkit   # solo para check.mjs
    `node stills.mjs work/<nombre>`, revisar con `node sheetstills.mjs work/<nombre> hoja.jpg slug ...` y
    sumar con `python3 addstills.py work/<nombre> index.html slug ... [--sacar slug:f02]`. Descarta los
    cuadros con texto encima (`textiness.mjs`) y los parecidos a lo ya publicado.
+6c. **Quitar.** `python3 quitar.py index.html slug:3,5,12 ... [--todo slug]`: saca piezas por su número
+   en el visor (clips o imágenes), o el trabajo entero con `--todo` (queda en `work/guardado/`).
 7. **Probar.** Con la web local en el puerto 4173: `node check.mjs http://127.0.0.1:4173/ slug slug`
 
 ## Criterios
