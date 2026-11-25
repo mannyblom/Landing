@@ -34,6 +34,7 @@
 <link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
 <link rel="modulepreload" href="assets/js/archive.js">
+<link rel="modulepreload" href="assets/js/showreel.js">
 <link rel="modulepreload" href="assets/js/transition.js">
 <link rel="modulepreload" href="assets/js/statement.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
@@ -128,7 +129,16 @@
     </div>
   </section>
 
-  <!-- 2. ARCHIVO: todos los trabajos por año, en grilla. Cada uno abre un visor con todas sus piezas
+  <!-- 2. VIDEO: un video horizontal de borde a borde. Para cambiarlo, reemplazá "src" (el .mp4) y
+       "poster" (la imagen que se ve mientras carga). Mejor sin audio, H.264, idealmente menos de 8 MB. -->
+  <section class="showreel" aria-label="Video" data-showreel>
+    <div class="showreel__frame">
+      <video class="showreel__video" src="assets/video/showreel.mp4" poster="assets/video/showreel-poster.jpg" muted loop playsinline controls preload="metadata" aria-label="Bañado La Estrella, Formosa"></video>
+      <button class="showreel__toggle" type="button" data-showreel-toggle aria-pressed="false" hidden>Pausar</button>
+    </div>
+  </section>
+
+  <!-- 3. ARCHIVO: todos los trabajos por año, en grilla. Cada uno abre un visor con todas sus piezas
        (fotos y clips de assets/archivo/<trabajo>/). Sin JavaScript, cada cuadro va a su publicación.
        Para sumar un trabajo: un <li class="arch__item"> en su año y su entrada en el JSON "archivo-data". -->
   <section class="arch" id="archivo" aria-labelledby="arch-h">
@@ -257,7 +267,7 @@
     <script type="application/json" id="archivo-data">{"erre-aw26": {"title": "Erre Jeans", "kind": "Fashion film · AW26", "year": 2026, "href": "https://www.instagram.com/p/DXIK0MlCf7O/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}]}, "maycla-aw26": {"title": "Maycla", "kind": "Fashion film · AW26", "year": 2026, "href": "https://www.instagram.com/p/DWzYbK3jRAm/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}]}, "banado-la-estrella": {"title": "Bañado La Estrella", "kind": "Registro personal · Formosa", "year": 2025, "href": "https://www.instagram.com/reel/DRLLaEejSiX/", "items": [{"src": "01.webp", "w": 640, "h": 336, "video": "01.mp4"}]}, "level-six-aw25": {"title": "Level Six", "kind": "Fashion film · AW25", "year": 2025, "href": "https://www.instagram.com/p/DRAwSy0DRnZ/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 1080, "h": 1350}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "level-six-latido-sur": {"title": "Level Six", "kind": "Latido sur", "year": 2025, "href": "https://www.instagram.com/p/DLTc9iQx9fd/", "items": [{"src": "01.webp", "w": 720, "h": 959, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 959, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 959, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1438}, {"src": "05.webp", "w": 1080, "h": 1438}, {"src": "06.webp", "w": 720, "h": 959, "video": "06.mp4"}, {"src": "07.webp", "w": 1080, "h": 1438}, {"src": "08.webp", "w": 720, "h": 959, "video": "08.mp4"}]}, "yazuka-yzk24": {"title": "Yazuka", "kind": "Film de campaña · YZK24", "year": 2025, "href": "https://www.instagram.com/p/DE3eR9nRvaZ/", "items": [{"src": "01.webp", "w": 720, "h": 900, "video": "01.mp4"}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "abstracta-ss25": {"title": "Abstracta", "kind": "Un amor de verano eterno · SS25", "year": 2025, "href": "https://www.instagram.com/p/DEVuaRgxj3K/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}, {"src": "07.webp", "w": 1080, "h": 1350}]}, "dolores-reynal-2024": {"title": "Dolores Reynal", "kind": "Fashion film · La Cumbre", "year": 2024, "href": "https://www.instagram.com/p/DBMRnXox9RN/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 720, "h": 900, "video": "07.mp4"}]}, "denim-studio": {"title": "Denim Studio", "kind": "Film y edición · Tejano Stores", "year": 2024, "href": "https://www.instagram.com/p/C_eJJ3lRWxk/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 720, "h": 900, "video": "04.mp4"}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 1080, "h": 1350}, {"src": "08.webp", "w": 720, "h": 900, "video": "08.mp4"}]}, "hielo-y-aventura": {"title": "Hielo y Aventura", "kind": "Con Outdoor Partners · El Calafate", "year": 2024, "href": "https://www.instagram.com/p/C9dfBktRSIg/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 900, "video": "02.mp4"}, {"src": "03.webp", "w": 720, "h": 900, "video": "03.mp4"}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 1080, "h": 1350}, {"src": "06.webp", "w": 720, "h": 900, "video": "06.mp4"}, {"src": "07.webp", "w": 720, "h": 900, "video": "07.mp4"}, {"src": "08.webp", "w": 1080, "h": 1350}]}, "clan-ss24": {"title": "Clan", "kind": "Essence · SS24", "year": 2024, "href": "https://www.instagram.com/p/C6KW3wyR9rB/", "items": [{"src": "01.webp", "w": 1080, "h": 1350}, {"src": "02.webp", "w": 720, "h": 899, "video": "02.mp4"}, {"src": "03.webp", "w": 1080, "h": 1350}, {"src": "04.webp", "w": 1080, "h": 1350}, {"src": "05.webp", "w": 720, "h": 900, "video": "05.mp4"}, {"src": "06.webp", "w": 1080, "h": 1350}, {"src": "07.webp", "w": 720, "h": 899, "video": "07.mp4"}]}, "clan-oi23": {"title": "Clan", "kind": "The Future Is Now · OT/INV 23", "year": 2023, "href": "https://www.instagram.com/reel/CryaOJcA-w2/", "items": [{"src": "01.webp", "w": 720, "h": 1280, "video": "01.mp4"}]}}</script>
   </section>
 
-  <!-- 3. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
+  <!-- 4. SOBRE MÍ: una frase que se enciende palabra por palabra con el scroll. -->
   <section class="about" id="sobre-mi" aria-labelledby="about-h">
     <div class="wrap">
       <h2 class="sr-only" id="about-h">Sobre mí</h2>
@@ -266,7 +276,7 @@
     </div>
   </section>
 
-  <!-- 4. SERVICIOS: cada fila lleva a la pieza que lo muestra. -->
+  <!-- 5. SERVICIOS: cada fila lleva a la pieza que lo muestra. -->
   <section class="services" id="servicios" aria-labelledby="services-h">
     <div class="wrap">
       <h2 id="services-h">Servicios</h2>
@@ -298,7 +308,7 @@
 
 </main>
 
-<!-- 5. CONTACTO + PIE: una sola sección oscura. Para cambiar un dato, editá su fila: el texto que se ve
+<!-- 6. CONTACTO + PIE: una sola sección oscura. Para cambiar un dato, editá su fila: el texto que se ve
      y el enlace (mailto:, wa.me/ con el número sin espacios ni +, o el perfil). -->
 <footer class="closing" id="contacto" aria-label="Contacto">
   <div class="wrap close">

@@ -8,6 +8,7 @@ import { initHero } from './hero.js';
 import { initTransition } from './transition.js';
 import { initFilms } from './films.js';
 import { initArchive, initArchiveMotion } from './archive.js';
+import { initShowreelPlayback, initShowreelMotion } from './showreel.js';
 import { initWorks } from './works.js';
 import { initStatement } from './statement.js';
 import { initMarquee } from './marquee.js';
@@ -26,6 +27,7 @@ initTransition(gsap);
 initClock();
 initContact();
 initArchive(gsap);
+initShowreelPlayback();
 initAnchors();
 
 if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
@@ -66,6 +68,7 @@ if (!gsap || !ScrollTrigger || !SplitText || !Observer) {
         initHero({ gsap, SplitText, ScrollTrigger, fine }),
         initStatement({ gsap, SplitText }),
         initArchiveMotion({ gsap, ScrollTrigger, SplitText }),
+        initShowreelMotion({ gsap }),
         initMarquee({ gsap, Observer, ScrollTrigger }),
       ];
       return () => cleanups.forEach((fn) => typeof fn === 'function' && fn());

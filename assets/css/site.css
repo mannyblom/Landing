@@ -1116,6 +1116,48 @@ html.js:not(.is-ready) [data-rise] { opacity: 0; }
   .legal__place { flex-basis: 100%; }
 }
 
+/* ---------- Video horizontal de borde a borde ---------- */
+.showreel { padding: 0; }
+.showreel__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1280 / 676;
+  max-height: 100svh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+.showreel__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.showreel__toggle {
+  position: absolute;
+  right: var(--gut);
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: #dedad3;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 150ms var(--ease), transform 150ms var(--ease);
+}
+.showreel__toggle[hidden] { display: none; }
+.showreel__toggle:focus-visible { outline-color: #dedad3; }
+@media (hover: hover) and (pointer: fine) {
+  .showreel__toggle:hover { background: #2a2a28; transform: translateY(-1px); }
+}
+@media (max-width: 639px) {
+  .showreel__toggle { bottom: 12px; min-height: 40px; padding: 0 14px; font-size: 13px; }
+}
+
 /* ---------- Archivo: todos los trabajos por año ---------- */
 .arch { padding: var(--padt) 0 var(--padb); }
 .arch__head {

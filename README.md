@@ -59,6 +59,13 @@ Cada fila tiene el texto que se ve y su enlace:
 Los botones "Escribime" del menú y del inicio llevan a esta sección. Si cambiás el mail o el
 teléfono, actualizalos también en el bloque `application/ld+json` del `<head>`.
 
+### Video de la home
+
+Entre el inicio y el Archivo hay un video horizontal de borde a borde. Para cambiarlo, reemplazá
+`assets/video/showreel.mp4` y `assets/video/showreel-poster.jpg` (la imagen que se ve mientras carga),
+o cambiá `src` y `poster` en la sección `showreel` de `index.html`. Conviene H.264, sin audio y de menos
+de 8 MB. Corre solo mientras se ve y tiene botón Pausar.
+
 ### Archivo
 
 La sección Archivo (en `index.html`) muestra todos los trabajos por año. Cada uno tiene:
