@@ -67,7 +67,8 @@ export function initArchive(gsap) {
     title.textContent = work.title;
     kind.textContent = work.kind;
     year.textContent = work.year;
-    ig.href = work.href;
+    ig.href = work.href || '#';
+    ig.hidden = !work.href; // un trabajo sin publicación no muestra el enlace
     if (observer) observer.disconnect();
     stage.innerHTML = '';
     slides = work.items.map((item, i) => {

@@ -1213,6 +1213,8 @@ html.js:not(.is-ready) [data-rise] { opacity: 0; }
   transition: transform 600ms var(--ease-enter), opacity 300ms var(--ease);
 }
 .arch__media video { opacity: 0; }
+/* En Motion casi todo es horizontal: cuadros apaisados para no cortar los textos de las piezas. */
+.theme-motion .arch__media { aspect-ratio: 4 / 3; }
 .arch__link.is-previewing video { opacity: 1; }
 .arch__title {
   display: block;
@@ -1341,6 +1343,7 @@ html.viewer-open body { overflow: hidden; }
   transition: background-color 150ms var(--ease), border-color 150ms var(--ease);
 }
 .viewer__count { min-width: 4.5em; text-align: center; font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--dark-muted); }
+.viewer__link[hidden] { display: none; }
 .viewer__link, .viewer__next-work {
   display: inline-flex;
   align-items: center;

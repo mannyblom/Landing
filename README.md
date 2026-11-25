@@ -106,8 +106,12 @@ Film: una grilla por año y, al elegir uno, el mismo visor. Para sumar o cambiar
 - su entrada en el bloque `<script type="application/json" id="archivo-data">`, con el mismo nombre.
 
 Las piezas del visor van en `assets/archivo/nombre-del-proyecto/` (`01.webp`, `02.webp`… con su
-`w`/`h` en px; un clip suma `"video": "02.mp4"` junto a su foto). Hoy cada proyecto tiene una sola
-pieza, su portada.
+`w`/`h` en px; un clip suma `"video": "02.mp4"` junto a su foto). Un trabajo sin publicación lleva `"href": ""`: el visor
+no muestra el enlace y, sin JavaScript, el cuadro abre su primer clip.
+
+Las piezas de 2026 salieron de los exports del disco (carpetas EXPORT o RENDER): un fotograma
+`.webp` y un clip de 4 s que arranca en ese mismo cuadro, sin audio (H.264, 540 px de ancho en
+vertical y 960 en horizontal).
 
 ### Sumar un proyecto de motion (sección vieja, hoy sin uso)
 
