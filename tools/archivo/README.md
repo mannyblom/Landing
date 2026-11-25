@@ -28,6 +28,11 @@ npx playwright install chromium webkit   # solo para check.mjs
 5. **Revisar.** `node sheet.mjs work/<nombre> hoja.jpg slug slug ...` (cada pieza lleva su número).
 6. **Sumar a la web.** `python3 add.py work/<nombre> index.html 2025 slug slug ... [--sacar slug:02,05]`
    (`motion.html` para Motion). Crea el año si no existe y actualiza el total.
+6b. **Imágenes fijas (opcional).** Para sumar fotogramas, un cuadro sobre blanco y un collage de tres
+   a trabajos que ya están en la web: `work/<nombre>/stills.json` (ver el encabezado de `stills.mjs`),
+   `node stills.mjs work/<nombre>`, revisar con `node sheetstills.mjs work/<nombre> hoja.jpg slug ...` y
+   sumar con `python3 addstills.py work/<nombre> index.html slug ... [--sacar slug:f02]`. Descarta los
+   cuadros con texto encima (`textiness.mjs`) y los parecidos a lo ya publicado.
 7. **Probar.** Con la web local en el puerto 4173: `node check.mjs http://127.0.0.1:4173/ slug slug`
 
 ## Criterios
