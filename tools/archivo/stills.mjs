@@ -73,9 +73,17 @@ for (const e of cfg) {
     const all = await candidates(fl, `${dir}/tmp`, 'g', Math.max(14, Math.ceil(36 / fl.length)), true);
     let seed = [...e.slug].reduce((a, ch) => (a * 31 + ch.charCodeAt(0)) >>> 0, 7);
     const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 2 ** 32; };
-    const texted = take(all.filter((c) => c.text), 1 + Math.floor(rnd() * 3));
-    const nine = take(all.filter((c) => !c.text), 9 - texted.length + (e.gridSkip || []).length).filter((_, i) => !(e.gridSkip || []).includes(i)).slice(0, 9 - texted.length);
+    // Sin escenas repetidas: más distancia visual que en el resto y 3 s entre tomas del mismo video.
+    // Tampoco repite lo que ya está en el visor como imagen fija (f01.webp...).
+    // (al cuadro sobre blanco se le saca el margen antes de comparar)
+    for (const f of fs.readdirSync(pub).filter((f) => /^f\d\d\.webp$/.test(f))) used.push(await sig(await sharp(path.join(pub, f)).trim({ background: '#ffffff', threshold: 10 }).toBuffer()));
+    const gd = e.gridDist || 32; const picked = [];
+    const distinct = (c) => used.every((g) => dist(g, c.g) > gd) && picked.every((p) => p.file !== c.file || Math.abs(p.t - c.t) > 3);
+    const pick = (list, n) => { const got = []; for (const c of list) { if (got.length >= n) break; if (distinct(c)) { got.push(c); picked.push(c); used.push(c.g); } } return got; };
+    const texted = pick(all.filter((c) => c.text), 1 + Math.floor(rnd() * 3));
+    const nine = pick(all.filter((c) => !c.text), 9 - texted.length + (e.gridSkip || []).length).filter((_, i) => !(e.gridSkip || []).includes(i)).slice(0, 9 - texted.length);
     for (const c of texted) nine.splice(Math.floor(rnd() * (nine.length + 1)), 0, c);
+    if (process.env.VER) nine.forEach((c, i) => console.log(i, path.basename(c.file), c.t.toFixed(1), c.text ? 'texto' : ''));
     if (nine.length < 9) { console.log(e.slug, 'no alcanzan las tomas para la grilla:', nine.length); continue; }
     const cw = 360, ch = 480; const cells = [];
     for (const [i, c] of nine.entries()) {
