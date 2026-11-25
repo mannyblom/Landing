@@ -1,21 +1,24 @@
 /* Archivo: grilla de todos los trabajos por año y un visor a pantalla completa.
+   El mismo visor abre los proyectos de la página de Motion: sirve cualquier enlace con data-arch
+   cuyo trabajo esté en el JSON #archivo-data de la página.
    - Con mouse, el cuadro reproduce su loop mientras el puntero está encima.
    - Al elegir un trabajo, el visor se abre desde ese cuadro y muestra todas sus piezas (fotos y
      clips) en una fila que se recorre con flechas, teclado, rueda o el dedo.
-   Sin JavaScript, cada cuadro lleva a la publicación de Instagram. */
+   Sin JavaScript, cada cuadro lleva a su publicación (Instagram o Behance). */
 
 const BASE = 'assets/archivo/';
 
 export function initArchive(gsap) {
-  const section = document.querySelector('#archivo');
   const dialog = document.querySelector('[data-viewer]');
   const dataEl = document.getElementById('archivo-data');
-  if (!section || !dialog || !dataEl || typeof dialog.showModal !== 'function') return;
+  if (!dialog || !dataEl || typeof dialog.showModal !== 'function') return;
 
   let data;
   try { data = JSON.parse(dataEl.textContent); } catch (e) { return; }
   const order = Object.keys(data);
-  const links = [...section.querySelectorAll('[data-arch]')];
+  const links = [...document.querySelectorAll('[data-arch]')].filter((l) => data[l.dataset.arch]);
+  if (!links.length) return;
+  const mediaOf = (tile) => tile.querySelector('.arch__media, .film__media') || tile;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   const fine = window.matchMedia('(hover: hover) and (pointer: fine)');
   const animate = () => Boolean(gsap) && !reduce.matches;
@@ -140,7 +143,7 @@ export function initArchive(gsap) {
     dialog.showModal();
     root.classList.add('viewer-open');
     if (animate() && tile) {
-      const r = tile.querySelector('.arch__media').getBoundingClientRect();
+      const r = mediaOf(tile).getBoundingClientRect();
       gsap.fromTo(dialog, { clipPath: inset(r) }, { clipPath: 'inset(0px 0px 0px 0px round 0px)', duration: 0.8, ease: 'expo.inOut', clearProps: 'clipPath' });
       gsap.fromTo(slides, { autoAlpha: 0, x: 60 }, { autoAlpha: 1, x: 0, duration: 0.9, ease: 'expo.out', stagger: 0.06, delay: 0.35 });
       gsap.fromTo(dialog.querySelectorAll('.viewer__bar > *, .viewer__foot > *'), { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power3.out', stagger: 0.05, delay: 0.45 });
@@ -157,13 +160,13 @@ export function initArchive(gsap) {
       if (from) from.focus({ preventScroll: true });
     };
     if (animate() && from) {
-      const r = from.querySelector('.arch__media').getBoundingClientRect();
+      const r = mediaOf(from).getBoundingClientRect();
       gsap.to(dialog, { clipPath: inset(r), duration: 0.6, ease: 'expo.inOut', onComplete: () => { gsap.set(dialog, { clearProps: 'clipPath' }); finish(); } });
     } else finish();
   };
 
   links.forEach((link) => link.addEventListener('click', (e) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // abrir en otra pestaña sigue yendo a Instagram
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // abrir en otra pestaña sigue yendo a la publicación
     e.preventDefault();
     open(link.dataset.arch, link);
   }));

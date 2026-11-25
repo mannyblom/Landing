@@ -34,6 +34,7 @@
 <link rel="modulepreload" href="assets/js/cursor.js">
 <link rel="modulepreload" href="assets/js/hero.js">
 <link rel="modulepreload" href="assets/js/films.js">
+<link rel="modulepreload" href="assets/js/archive.js">
 <link rel="modulepreload" href="assets/js/transition.js">
 <link rel="modulepreload" href="assets/js/marquee.js">
 <script>
@@ -129,7 +130,7 @@
       <div class="wrap films__head">
         <div class="films__intro">
           <h2 id="films-h">Proyectos</h2>
-          <p class="lead">Cada uno abre su ficha en Behance.</p>
+          <p class="lead">Elegí uno para verlo en detalle.</p>
         </div>
         <div class="films__meta">
           <button class="films__pause" type="button" data-films-pause aria-pressed="false" hidden>Pausar videos</button>
@@ -140,7 +141,7 @@
 
       <ol class="films__track" data-films-track>
         <li class="film film--work" id="motion-livingtree">
-          <a class="film__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener" draggable="false">
+          <a class="film__link" href="https://www.behance.net/gallery/188052891/LivingTree-Motion-Design" target="_blank" rel="noopener" draggable="false" data-arch="livingtree">
             <span class="film__media">
               <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
               <picture>
@@ -153,11 +154,11 @@
             <span class="film__title">LivingTree</span>
             <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             <span class="film__kind">Animación de producto</span>
-            <span class="sr-only">(se abre en Behance)</span>
+            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
           </a>
         </li>
         <li class="film film--work" id="motion-healthy-baby">
-          <a class="film__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener" draggable="false">
+          <a class="film__link" href="https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design" target="_blank" rel="noopener" draggable="false" data-arch="healthy-baby">
             <span class="film__media">
               <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
               <picture>
@@ -170,11 +171,11 @@
             <span class="film__title">Healthy Baby</span>
             <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             <span class="film__kind">Animación de producto · 2022</span>
-            <span class="sr-only">(se abre en Behance)</span>
+            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
           </a>
         </li>
         <li class="film film--work" id="motion-fieles">
-          <a class="film__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener" draggable="false">
+          <a class="film__link" href="https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES" target="_blank" rel="noopener" draggable="false" data-arch="fieles">
             <span class="film__media">
               <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
               <picture>
@@ -187,11 +188,11 @@
             <span class="film__title">FIELES</span>
             <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             <span class="film__kind">Identidad gráfica · 2023</span>
-            <span class="sr-only">(se abre en Behance)</span>
+            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
           </a>
         </li>
         <li class="film film--work" id="motion-naranja-x">
-          <a class="film__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener" draggable="false">
+          <a class="film__link" href="https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition" target="_blank" rel="noopener" draggable="false" data-arch="naranja-x">
             <span class="film__media">
               <!-- Video: agregá <video muted loop playsinline preload="none" src="…mp4" aria-hidden="true" tabindex="-1"></video> después del <img>. Un gif va como <img>. -->
               <picture>
@@ -204,11 +205,69 @@
             <span class="film__title">Naranja X</span>
             <svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg>
             <span class="film__kind">Film y edición</span>
-            <span class="sr-only">(se abre en Behance)</span>
+            <span class="sr-only">(abre el proyecto; con Ctrl o Cmd, la ficha en Behance)</span>
           </a>
         </li>
       </ol>
-      <span class="cursor-label" data-films-cursor aria-hidden="true">Ver en Behance<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
+      <!-- Lo que muestra el visor de cada proyecto: sus piezas van en assets/archivo/<proyecto>/
+           (fotos .webp con su ancho y alto en px; un clip suma "video": "02.mp4"). -->
+      <script type="application/json" id="archivo-data">
+{
+  "livingtree": {
+    "title": "LivingTree",
+    "kind": "Animación de producto",
+    "year": "",
+    "href": "https://www.behance.net/gallery/188052891/LivingTree-Motion-Design",
+    "items": [
+      {
+        "src": "01.webp",
+        "w": 808,
+        "h": 632
+      }
+    ]
+  },
+  "healthy-baby": {
+    "title": "Healthy Baby",
+    "kind": "Animación de producto",
+    "year": "2022",
+    "href": "https://www.behance.net/gallery/187969869/Healthy-Baby-2022-Motion-Design",
+    "items": [
+      {
+        "src": "01.webp",
+        "w": 808,
+        "h": 632
+      }
+    ]
+  },
+  "fieles": {
+    "title": "FIELES",
+    "kind": "Identidad gráfica",
+    "year": "2023",
+    "href": "https://www.behance.net/gallery/168228921/Identidad-Grafica-para-FIELES",
+    "items": [
+      {
+        "src": "01.webp",
+        "w": 808,
+        "h": 632
+      }
+    ]
+  },
+  "naranja-x": {
+    "title": "Naranja X",
+    "kind": "Film y edición",
+    "year": "",
+    "href": "https://www.behance.net/gallery/188037119/Naranja-X-Film-Edition",
+    "items": [
+      {
+        "src": "01.webp",
+        "w": 808,
+        "h": 632
+      }
+    ]
+  }
+}
+      </script>
+      <span class="cursor-label" data-films-cursor aria-hidden="true">Ver proyecto<svg class="arrow arrow--out" viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></span>
     </div>
   </section>
 
@@ -262,6 +321,26 @@
     <p class="legal__credit">Tipografía Archivo, de Omnibus-Type.</p>
   </div>
 </footer>
+
+<dialog class="viewer" aria-labelledby="viewer-title" data-viewer>
+  <div class="viewer__in">
+    <div class="wrap viewer__bar">
+      <p class="viewer__meta"><span data-v-year></span><span data-v-kind></span></p>
+      <h2 class="viewer__title" id="viewer-title" data-v-title></h2>
+      <button class="viewer__close" type="button" data-v-close>Cerrar<svg viewBox="0 0 12 12" aria-hidden="true"><path d="m2.5 2.5 7 7m0-7-7 7"/></svg></button>
+    </div>
+    <div class="viewer__stage" data-v-stage tabindex="-1"></div>
+    <div class="wrap viewer__foot">
+      <div class="viewer__nav">
+        <button type="button" class="viewer__arrow" data-v-prev aria-label="Pieza anterior"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M10.5 6H2M5.5 2.5 2 6l3.5 3.5"/></svg></button>
+        <p class="viewer__count" data-v-count aria-live="polite"></p>
+        <button type="button" class="viewer__arrow" data-v-next aria-label="Pieza siguiente"><svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></button>
+      </div>
+      <a class="viewer__link" data-v-link href="#" target="_blank" rel="noopener">Ver en Behance<svg class="arrow arrow--out" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a>
+      <button type="button" class="viewer__next-work" data-v-next-work>Siguiente trabajo<svg class="arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M1.5 6h8.5M6.5 2.5 10 6l-3.5 3.5"/></svg></button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/vendor/gsap-3.15.1/gsap.min.js" defer></script>
 <script src="assets/vendor/gsap-3.15.1/ScrollTrigger.min.js" defer></script>

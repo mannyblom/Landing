@@ -98,6 +98,13 @@ Es la misma página que Film, en negativo. Sus proyectos usan el mismo carrete: 
 `<video muted loop playsinline preload="none" src="…mp4"></video>` después de la imagen (la imagen
 queda como póster); un gif va directo como `<img src="….gif">`.
 
+Al hacer clic en un proyecto se abre el mismo visor del Archivo de Film. Lo que muestra está en el
+bloque `<script type="application/json" id="archivo-data">` de `motion.html` (una entrada por
+proyecto, con el mismo nombre que su `data-arch`), y los archivos van en
+`assets/archivo/nombre-del-proyecto/`: `01.webp`, `02.webp`… con su `w`/`h` en px, y para un clip,
+`"video": "02.mp4"` junto a su foto. Hoy cada proyecto tiene una sola pieza (su portada); el año
+va en `"year"` y, si queda vacío, no se muestra.
+
 ### Sumar un proyecto de motion (sección vieja, hoy sin uso)
 
 Igual, en `<section class="works">`: copiá un `<li class="work" …>` completo y cambiá id,

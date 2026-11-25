@@ -1268,6 +1268,7 @@ html.viewer-open body { overflow: hidden; }
   padding: 24px 0 28px;
 }
 .viewer__meta { display: flex; gap: 12px; font-size: 13px; font-weight: 500; color: var(--dark-muted); }
+.viewer__meta span:empty { display: none; }
 .viewer__title {
   grid-column: 1;
   margin-top: 6px;
